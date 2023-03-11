@@ -11,15 +11,15 @@ import Events from "./components/Events/Events";
 
 function App() {
     return (
-        <div className="App">
+        <div className='App font-poppins'>
             <Navbar />
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="register" element={<Register />} />
-                    <Route path="competitions" element={<Competitions />} />
-                    <Route path="*" element={<Error404 />} />
-                    <Route path="events" element={<Events />} />
+                    <Route path='/' element={<Home />} />
+                    <Route path='register' element={<Register />} />
+                    <Route path='competitions' element={<Competitions />} />
+                    <Route path='*' element={<Error404 />} />
+                    <Route path='events' element={<Events />} />
                 </Routes>
             </BrowserRouter>
             <Footer />
