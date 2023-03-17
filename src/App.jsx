@@ -10,17 +10,19 @@ import Events from "./components/Events/Events";
 
 function App() {
     return (
-        <div className='App font-poppins'>
+        <div className='App font-poppins flex flex-col min-h-screen'>
             <Navbar />
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='register' element={<Register />} />
-                    <Route path='competitions' element={<Competitions />} />
-                    <Route path='*' element={<Error404 />} />
-                    <Route path='events' element={<Events />} />
-                </Routes>
-            </BrowserRouter>
+            <div className='flex-grow'>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='register' element={<Register />} />
+                        <Route path='competitions' element={<Competitions />} />
+                        <Route path='*' element={<Error404 />} />
+                        <Route path='events' element={<Events />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
             <Footer />
         </div>
     );
