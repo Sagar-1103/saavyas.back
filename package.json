@@ -8,9 +8,9 @@
         "react-router-dom": "^6.8.1"
     },
     "scripts": {
-        "dev": "vite",
+        "start": "vite --port 3000",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview --port 3001"
     },
     "eslintConfig": {
         "extends": [
