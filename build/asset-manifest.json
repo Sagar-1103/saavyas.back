@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b216617a.css",
+    "main.js": "/static/js/main.8f0858cc.js",
+    "static/media/saavyas-23-w-name-white.png": "/static/media/saavyas-23-w-name-white.0e0fe6352aa4177339b5.png",
+    "static/media/LostFish-5DOz.ttf": "/static/media/LostFish-5DOz.c81ef901fa4b0d0f157d.ttf",
+    "static/media/LostFish-5DOz.woff": "/static/media/LostFish-5DOz.e71ca486f6d05e92244f.woff",
+    "index.html": "/index.html",
+    "main.b216617a.css.map": "/static/css/main.b216617a.css.map",
+    "main.8f0858cc.js.map": "/static/js/main.8f0858cc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b216617a.css",
+    "static/js/main.8f0858cc.js"
+  ]
+}
