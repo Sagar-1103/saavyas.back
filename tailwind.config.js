@@ -8,6 +8,10 @@ module.exports = {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
+        lostfish: ['lostfish', 'cursive'],
+      },
+      width: {
+        cap: '1280px',
       },
     },
   },
