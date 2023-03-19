@@ -3,7 +3,7 @@ import pg from "./stuff.json"
 const Home = () => {
      let analytics = pg.analytics;
      return( 
-     <div style={{backgroundImage:"url(images/bg.png)"}} className="bg-contain bg-no-repeat w-[100%] bg-[#0F1B33] text-white gap-[10rem] flex flex-col justify-center items-center">
+     <div style={{backgroundImage:"url(images/bg.png)"}} className="bg-contain bg-center-top bg-no-repeat w-full mx-auto bg-[#0F1B33] text-white gap-[10rem] flex flex-col justify-center items-center">
         
         <div className="flex justify-center text-6xl gap-[1.75rem] pt-40 h-80 pb-40 font-[lostfish]">
             Sea Shore Soiree
@@ -17,14 +17,14 @@ const Home = () => {
         </div>
 
 
-        <div className="grid max-w-5xl gap-4 p-4 md:grid-cols-3 lg:grid-cols-2 flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-[3000px]:grid-cols-1 gap-6">
             {
                 analytics.map(point=>(
-                    <div className="w-[25vw] h-[20vh] bg-[#5A7D9A40] flex flex-col justify-center items-center gap-[2rem]">
-                        <span className="font-semibold text-4xl">
+                    <div className="md:w-[25vw] lg:h-[30vh] w-[60vw] h-[40vh] bg-[#5A7D9A40] flex flex-col justify-center items-center gap-[2rem]">
+                        <span className="font-semibold text-3xl">
                             {point.value}
                         </span>
-                        <span className="font-semibold text-xl">
+                        <span className="font-semibold text-3xl">
                             {point.title}
                         </span>
                     </div>
