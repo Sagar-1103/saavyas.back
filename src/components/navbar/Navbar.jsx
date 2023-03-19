@@ -7,7 +7,7 @@ const Navbar = () => {
             boxShadow: "2px 2px 12px 2px rgba(0, 0, 0, 0.25)",
             backdropFilter: "blur(3.5px)",
             borderRadius: "18px"
-        }} className="flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem]">
+        }} className="font-[lostfish] flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem] text-xl">
             <span className="NavItem">
                 Home
             </span>
