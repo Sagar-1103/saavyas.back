@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return <div className="w-screen h-auto flex justify-center items-center">
@@ -8,28 +9,28 @@ const Navbar = () => {
             backdropFilter: "blur(3.5px)",
             borderRadius: "18px"
         }} className="font-[lostfish] flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem] text-xl">
-            <span className="NavItem">
+            <Link to="/">
                 Home
-            </span>
+            </Link>
 
-            <span className="NavItem">
+            <Link to="/about">
                 About
-            </span>
+            </Link>
 
-            <span className="NavItem">
+            <Link to="/events">
                 Events
-            </span>
+            </Link>
             <img style={{
                 width:"50px"
             }} src="saavyas-logo.png"/>
                 
-            <span className="NavItem">
+            <Link to="/competitions">
                 Competitions
-            </span>
+            </Link>
 
-            <span className="NavItem">
+            <Link to="/contact">
                 Contact
-            </span>
+            </Link>
         </div>
     </div>;
 };
