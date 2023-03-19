@@ -1,4 +1,56 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+const footerSocialLinks = [
+    {
+        id: "saavyas-facebook",
+        name: "Facebook",
+        link: "https://www.facebook.com/saavyas.nitg/",
+    },
+    {
+        id: "saavyas-twitter",
+        name: "Twitter",
+        link: "https://twitter.com/saavyas_nitg",
+    },
+    {
+        id: "saavyas-linkedin",
+        name: "Linkedin",
+        link: "https://www.linkedin.com/company/saavyas-nitgoa/about/",
+    },
+    {
+        id: "saavyas-instagram",
+        name: "Instagram",
+        link: "https://www.instagram.com/saavyas.nitg/",
+    },
+];
+
+const navlinks = [
+    {
+        id: "saavyas-about",
+        name: "About",
+        link: "/about",
+    },
+    {
+        id: "saavyas-sponsors",
+        name: "Sponsors",
+        link: "/sponsors",
+    },
+    {
+        id: "saavyas-merchandise",
+        name: "Merchandise",
+        link: "/merchandise",
+    },
+    {
+        id: "saavyas-partners",
+        name: "Partners",
+        link: "/partners",
+    },
+    {
+        id: "saavyas-contact",
+        name: "Contact",
+        link: "/contact",
+    },
+];
 
 const Footer = () => {
     return (
@@ -20,36 +72,27 @@ const Footer = () => {
                     <div className='flex justify-center gap-10  w-full '>
                         {/* page links  */}
                         <ul className='w-1/2 flex flex-col  justify-start items-center md:items-start'>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                About
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Sponsors
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Merchandise
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Partners
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Contact
-                            </li>
+                            {navlinks.map((link) => (
+                                <li
+                                    key={link.id}
+                                    className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'
+                                >
+                                    <Link to={link.link}>{link.name}</Link>
+                                </li>
+                            ))}
                         </ul>
                         {/* social links  */}
                         <ul className='w-1/2 flex flex-col justify-start items-center md:items-start'>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Facebook
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Twitter
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Linkedin
-                            </li>
-                            <li className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'>
-                                Instagram
-                            </li>
+                            {footerSocialLinks.map((link) => (
+                                <li
+                                    key={link.id}
+                                    className='text-center md:text-left hover:cursor-pointer hover:text-[#F9A826]'
+                                >
+                                    <a target='_blank' href={link.link}>
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
