@@ -1,5 +1,6 @@
 import React from "react";
 import pg from "./stuff.json"
+import sponsors from "./sponsors.json"
 const Home = () => {
      let analytics = pg.analytics;
      return( 
@@ -31,20 +32,27 @@ const Home = () => {
                 ))
             }
         </div>
+        {
+            Object.keys(sponsors).map(sponsorType =>(
 
-        <div className="p-3 flex justify-center items-center flex-col gap-8 w-[100%]">
-            <div className="font-semibold justify-center items-center text-4xl font-[lostfish]">Title Sponsors</div>
-            <div className="w-[75%] justify-center items-center text-center text-md">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            <div className="p-3 flex justify-center items-center flex-col gap-8 w-[100%]">
+                <div className="font-semibold justify-center items-center text-4xl font-[lostfish]">{sponsorType.split("_").join(" ")}</div>
+               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 min-[3000px]:grid-cols-2 gap-6">
+        
+                {
+                    sponsors[sponsorType].map(sponsor => (
+                        <div className="md:w-[25vw] lg:h-[30vh] w-[60vw] h-[40vh] flex flex-col justify-center items-center gap-[2rem]">
+                            <img src={sponsor.logo}/>
+                            <span className="font-semibold text-xl min-[3000px]:text-7xl">
+                                {sponsor.name}
+                            </span>
+                        </div>
+                    ))
+                }
+                </div>
             </div>
-        </div>
-
-        <div className="p-3 flex justify-center items-center flex-col gap-8 w-[100%]">
-            <div className="font-semibold justify-center items-center text-4xl font-[lostfish]">Asssociate Sponsors</div>
-            <div className="w-[75%] justify-center items-center text-center text-md">
-                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-            </div>
-        </div>
+            ))
+        }
     </div>)
 };
 
