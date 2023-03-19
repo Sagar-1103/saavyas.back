@@ -10,9 +10,9 @@ import Events from "./components/Events/Events";
 
 function App() {
     return (
-        <div className='App font-poppins flex flex-col min-h-screen'>
-            <div className='flex-grow'>
-                <BrowserRouter>
+        <BrowserRouter>
+            <div className='App font-poppins flex flex-col min-h-screen'>
+                <div className='flex-grow'>
                     <Navbar />
                     <Routes>
                         <Route path='/' element={<Home />} />
@@ -21,10 +21,10 @@ function App() {
                         <Route path='*' element={<Error404 />} />
                         <Route path='events' element={<Events />} />
                     </Routes>
-                </BrowserRouter>
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </BrowserRouter>
     );
 }
 
