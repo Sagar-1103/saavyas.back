@@ -17,7 +17,7 @@ const Home = () => {
         </div>
 
 
-        <div className="grid gap-4 md:grid-cols-3  grid-cols-2">
+        <div className="grid max-w-5xl gap-4 p-4 md:grid-cols-3 lg:grid-cols-2 flex-wrap">
             {
                 analytics.map(point=>(
                     <div className="w-[25vw] h-[20vh] bg-[#5A7D9A40] flex flex-col justify-center items-center gap-[2rem]">
