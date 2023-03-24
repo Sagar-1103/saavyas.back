@@ -1,4 +1,4 @@
-import { BrowserRouter, HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/home/Home";
 import Register from "./components/register/Register";
@@ -10,7 +10,7 @@ import Events from "./components/Events/Events";
 
 function App() {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div className="App font-poppins flex flex-col min-h-screen">
                 <div className="flex-grow">
                     <Navbar />
@@ -24,7 +24,7 @@ function App() {
                 </div>
                 <Footer />
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 
