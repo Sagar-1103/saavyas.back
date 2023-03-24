@@ -7,20 +7,23 @@ import Competitions from "./components/competitions/Competitions";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Events from "./components/Events/Events";
+import { AuthContextProvider } from "./components/context/AuthContext";
 
 function App() {
     return (
         <BrowserRouter>
             <div className="App font-poppins flex flex-col min-h-screen">
                 <div className="flex-grow">
-                    <Navbar />
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="register" element={<Register />} />
-                        <Route path="competitions" element={<Competitions />} />
-                        <Route path="*" element={<Error404 />} />
-                        <Route path="events" element={<Events />} />
-                    </Routes>
+                    <AuthContextProvider>
+                        <Navbar />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="register" element={<Register />} />
+                            <Route path="competitions" element={<Competitions />} />
+                            <Route path="*" element={<Error404 />} />
+                            <Route path="events" element={<Events />} />
+                        </Routes>
+                    </AuthContextProvider>
                 </div>
                 <Footer />
             </div>
