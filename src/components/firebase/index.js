@@ -1,1 +1,1 @@
-export { getAllData } from './realtimeDb';
+export { getAllData } from "./realtimeDb";
