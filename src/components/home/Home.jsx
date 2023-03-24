@@ -1,12 +1,12 @@
 import React from "react";
 import pg from "./stuff.json";
+import Wrapper from "../utils/Wrapper";
+;
 const Home = () => {
     let analytics = pg.analytics;
     return (
-        <div
-            style={{ backgroundImage: "url(images/bg.png)" }}
-            className='bg-contain bg-center-top bg-no-repeat w-full mx-auto bg-[#0F1B33] text-white gap-[10rem] flex flex-col justify-center items-center'
-        >
+        <Wrapper>
+
             <div className='flex justify-center text-6xl gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish'>
                 Sea Shore Soiree
             </div>
@@ -71,7 +71,8 @@ const Home = () => {
                     accident, sometimes on purpose (injected humour and the like).
                 </div>
             </div>
-        </div>
+        </Wrapper>
+        
     );
 };
 

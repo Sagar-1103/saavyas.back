@@ -12,7 +12,7 @@ const Navbar = () => {
                     backdropFilter: "blur(3.5px)",
                     borderRadius: "18px",
                 }}
-                className='font-lostfish flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem] text-xl'
+                className='hidden font-lostfish lg:flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem] text-xl'
             >
                 <Link to='/'>Home</Link>
 
