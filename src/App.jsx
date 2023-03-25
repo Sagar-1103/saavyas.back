@@ -8,6 +8,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Events from "./components/Events/Events";
 import { AuthContextProvider } from "./components/context/AuthContext";
+import EventRegister from "./components/register/EventRegister";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                             <Route path="competitions" element={<Competitions />} />
                             <Route path="*" element={<Error404 />} />
                             <Route path="events" element={<Events />} />
+                            <Route path="events/register" element={<EventRegister />} />
                         </Routes>
                     </AuthContextProvider>
                 </div>

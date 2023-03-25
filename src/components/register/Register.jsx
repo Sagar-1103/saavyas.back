@@ -3,29 +3,6 @@ import { useNavigate } from "react-router";
 import { UserAuth } from "../context/AuthContext";
 import { createNewUser, isUserAlreadyInDb } from "../firebase/realtimeDb";
 
-const Contain = ({ children }) => {
-    return (
-        <div className='pt-40 w-full flex-1 bg-[#0F1B33] p-5 lg:p-10 '>
-            <div className='flex justify-center items-center w-full xl:w-cap mx-auto'>
-                {children}
-            </div>
-        </div>
-    );
-};
-
-const Input = ({ label, type, placeholder }) => {
-    return (
-        <div className='flex flex-col gap-2'>
-            <label className='text-white text-sm'>{label}</label>
-            <input
-                type={type}
-                placeholder={placeholder}
-                className='bg-[#1F2B47] text-white rounded-md p-2'
-            />
-        </div>
-    );
-};
-
 const Register = () => {
     const navigate = useNavigate();
     const [name, setName] = useState("");
