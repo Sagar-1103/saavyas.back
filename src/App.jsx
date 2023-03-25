@@ -12,7 +12,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className='App font-poppins flex flex-col min-h-screen'>
-                <div className='flex-grow'>
+                <div className='flex-grow flex flex-col'>
                     <Navbar />
                     <Routes>
                         <Route path='/' element={<Home />} />
