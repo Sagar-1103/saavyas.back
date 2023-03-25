@@ -8,7 +8,9 @@
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.43.7",
         "react-router-dom": "^6.8.1",
-        "zod": "^3.21.4"
+        "zod": "^3.21.4",
+        "firebase": "^9.18.0",
+        "react-icons": "^4.8.0"
     },
     "scripts": {
         "start": "vite --port 3000",

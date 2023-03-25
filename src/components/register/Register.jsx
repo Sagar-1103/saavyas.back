@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { UserAuth } from "../context/AuthContext";
+import { createNewUser, isUserAlreadyInDb } from "../firebase/realtimeDb";
 
 const Contain = ({ children }) => {
     return (
@@ -24,71 +27,138 @@ const Input = ({ label, type, placeholder }) => {
 };
 
 const Register = () => {
-    const [isTeam, setIsTeam] = React.useState(true);
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [gender, setGender] = useState("");
+    const [phone, setPhone] = useState("");
+    const [city, setCity] = useState("");
+    const [type, setType] = useState("");
+    const [college, setCollege] = useState("");
+
+    const { user } = UserAuth();
+
+    const handleSubmit = async () => {
+        // Check if user is already registered
+        // let isUserRegistered = !!(await isUserAlreadyInDb(user.uid));
+
+        // If not, register the user
+
+        const newUser = {
+            uid: user.uid,
+            name,
+            email,
+            gender,
+            mobile_no: phone,
+            city,
+            type,
+            college_name: college,
+        };
+
+        const res = await createNewUser(newUser);
+        navigate("/");
+        console.log(res);
+    };
+
+    useEffect(() => {
+        if (user) {
+            isUserAlreadyInDb(user.uid).then((res) => {
+                if (res) {
+                    navigate("/");
+                }
+            });
+            setName(user.displayName);
+            setEmail(user.email);
+        }
+    }, [user]);
+
+    //   useEffect(() => {
+    //     (async () => {
+    //       const res = await createNewUser({
+    //         uid: '98897686',
+    //         name: '123',
+    //         email: '123',
+    //       });
+    //     })();
+    //   }, []);
+
     return (
-        <Contain>
-            <div className='bg-[rgba(217, 217, 217, 1)] text-white w-full grid grid-cols-1 '>
-                <div className='flex flex-col gap-5'>
-                    <img
-                        className='w-full object-contain select-none rounded-sm'
-                        src='/images/event-poster.png'
-                        alt=''
-                    />
-                    <h1 className='font-lostfish text-3xl text-center'>event name</h1>
-                    <p className='text-center'>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                    <div className='w-full flex justify-center items-center '>
-                        <div className='w-1/2 flex flex-col justify-center items-center'>
-                            <p>Prize Worth</p>
-                            <p>&#8377; 200000</p>
-                        </div>
-                        <div className='w-1/2 flex flex-col justify-center items-center'>
-                            <p>Entry Fee</p>
-                            <p>&#8377; 1000</p>
+        <div className="bg-contain bg-center-top bg-no-repeat w-full mx-auto bg-[#0F1B33] text-white gap-[10rem] flex flex-col justify-center items-center">
+            <div className="text-2xl">Register</div>
+            <div className=" w-[95%] justify-center p-2  bg-[#D9D9D920] rounded-md">
+                <div className="text-center">SIGN UP</div>
+                <div className="mt-4">
+                    <div className="mb-3">
+                        <div>Name</div>
+                        <div className="w-full">
+                            <input
+                                className="w-full rounded-md h-10 text-black px-2 "
+                                name="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
                         </div>
                     </div>
-                </div>
-                <div className='flex flex-col gap-5'>
-                    <div>
-                        <h2 className='text-center'>Register as</h2>
-                        <div className='w-full flex justify-center items-center'>
-                            <div className='w-1/2 flex gap-2 items-center justify-center  '>
-                                {/* radio button input  */}
-                                <input
-                                    type='radio'
-                                    name='team'
-                                    id='team'
-                                    value='team'
-                                    checked={isTeam}
-                                    onChange={() => setIsTeam(true)}
-                                />
-                                <label htmlFor='individual'>Team</label>
-                            </div>
-                            <div className='w-1/2 flex gap-2 items-center justify-center  '>
-                                {/* radio button input  */}
-                                <input
-                                    type='radio'
-                                    name='team'
-                                    id='individual'
-                                    value='individual'
-                                    checked={!isTeam}
-                                    onChange={() => setIsTeam(false)}
-                                />
-                                <label htmlFor='individual'>Individual</label>
-                            </div>
+                    <div className="mb-3">
+                        <div>Email</div>
+                        <div className="w-full">
+                            <input
+                                className="w-full rounded-md h-10 text-black px-2"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
                         </div>
                     </div>
-                    <form id='eventRegistrationForm'></form>
-                </div>
-                <div className='flex flex-col'>
-                    <button htmlFor='eventRegistrationForm' className='text-center font-lostfish'>
-                        Pay And Register
-                    </button>
+                    <div className="mb-3">
+                        <div>Gender</div>
+                        <div className="w-full"></div>
+                    </div>
+                    <div className="mb-3">
+                        <div>Phone Number</div>
+                        <div className="w-full">
+                            <input
+                                className="w-full rounded-md h-10 text-black px-2"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="mb-3">
+                        <div>City</div>
+                        <div className="w-full">
+                            <input
+                                className="w-full rounded-md h-10 text-black px-2"
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mb-3">
+                        <div>Enter Type</div>
+                        <div className="w-full"></div>
+                    </div>
+                    <div className="mb-3">
+                        <div>College Name</div>
+                        <div className="w-full">
+                            <input
+                                className="w-full rounded-md h-10 text-black px-2"
+                                value={college}
+                                onChange={(e) => setCollege(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className="w-full m-auto justify-center text-center">
+                        <button
+                            className="w-[50%] rounded-md h-10 bg-[#0F1B33] text-white cursor-pointer"
+                            onClick={handleSubmit}
+                        >
+                            Submit
+                        </button>
+                    </div>
                 </div>
             </div>
-        </Contain>
+        </div>
     );
 };
 
