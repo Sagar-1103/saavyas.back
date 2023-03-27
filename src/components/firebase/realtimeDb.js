@@ -21,3 +21,18 @@ export const createNewUser = async (data) => {
     console.log("inside createNewUser", res);
     return res;
 };
+
+export const getEventDetails = async () => {
+    const dbRef = ref(db);
+    const data = await (await get(child(dbRef, `events/`))).val();
+    console.log({ events: data });
+    return data;
+}
+
+export const getEventById = async (id) => {
+    const dbRef = ref(db);
+    console.log("id", id);
+    const data = await (await get(child(dbRef, `events/${id}`))).val();
+    console.log({ data });
+    return data;
+}
