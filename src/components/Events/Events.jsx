@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../utils/Wrapper";
-import ClearCard from "./cards/ClearCard";
-import EventCard from "./cards/EventCard";
+import ClearCard from "../utils/cards/ClearCard";
+import EventCard from "../utils/cards/EventCard";
 import events from "./events.json"
 const Events = () => {
     console.log(events)
