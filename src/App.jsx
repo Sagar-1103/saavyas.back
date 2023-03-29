@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/home/Home";
@@ -11,17 +10,19 @@ import Events from "./components/Events/Events";
 
 function App() {
     return (
-        <div className="App">
-            <Navbar />
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="register" element={<Register />} />
-                    <Route path="competitions" element={<Competitions />} />
-                    <Route path="*" element={<Error404 />} />
-                    <Route path="events" element={<Events />} />
-                </Routes>
-            </BrowserRouter>
+        <div className='App font-poppins flex flex-col min-h-screen'>
+            <div className='flex-grow'>
+                <BrowserRouter>
+                    <Navbar />
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='register' element={<Register />} />
+                        <Route path='competitions' element={<Competitions />} />
+                        <Route path='*' element={<Error404 />} />
+                        <Route path='events' element={<Events />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
             <Footer />
         </div>
     );
