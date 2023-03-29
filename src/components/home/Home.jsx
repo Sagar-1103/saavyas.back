@@ -1,6 +1,7 @@
 import React from "react";
 import pg from "./stuff.json";
 import Wrapper from "../utils/Wrapper";
+
 const Home = () => {
     let analytics = pg.analytics;
     return (
