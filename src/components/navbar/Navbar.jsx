@@ -63,7 +63,7 @@ const Navbar = () => {
                 <Link to="/workshops">Workshops</Link>
 
                 <Link to="/about">About Us</Link>
-
+                {/* 
                 {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
                         Register
@@ -73,7 +73,7 @@ const Navbar = () => {
                         {" "}
                         Sign Out{" "}
                     </button>
-                )}
+                )} */}
             </div>
 
             <div
@@ -131,11 +131,11 @@ const Navbar = () => {
 
                     <Link to="/events">Events</Link>
 
-                    <Link to="/competitions">Competitions</Link>
+                    <Link to="/workshops">Workshops</Link>
 
                     <Link to="/contact">Contact</Link>
 
-                    {!user ? (
+                    {/* {!user ? (
                         <button onClick={handleSignIn} className="text-left">
                             Sign Up
                         </button>
@@ -143,7 +143,7 @@ const Navbar = () => {
                         <button onClick={logOut} className="text-left">
                             Sign Out
                         </button>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>
