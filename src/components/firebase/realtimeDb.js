@@ -28,3 +28,10 @@ export const CoreTeamDetails = async () => {
     console.log(">> Firebase | Fetched Core Team Details \n", res);
     return res;
 };
+
+export const GetDetailsOfEndPoint = async (endpoint) => {
+    const dbRef = ref(db);
+    const res = await (await get(child(dbRef, endpoint))).val();
+    console.log(">> Firebase | Fetched data with endpoint: " + endpoint + "\n", res);
+    return res;
+};
