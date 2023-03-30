@@ -38,12 +38,12 @@ const navlinks = [
     {
         id: "saavyas-merchandise",
         name: "Merchandise",
-        link: "/merchandise",
+        link: "https://merchandise.saavyas.org",
     },
     {
-        id: "saavyas-partners",
-        name: "Partners",
-        link: "/partners",
+        id: "saavyas-events",
+        name: "Events",
+        link: "/events",
     },
     {
         id: "saavyas-contact",
