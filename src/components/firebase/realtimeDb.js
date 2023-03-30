@@ -21,3 +21,10 @@ export const createNewUser = async (data) => {
     console.log("inside createNewUser", res);
     return res;
 };
+
+export const CoreTeamDetails = async () => {
+    const dbRef = ref(db);
+    const res = await (await get(child(dbRef, `core-teams-details/`))).val();
+    console.log(">> Firebase | Fetched Core Team Details \n", res);
+    return res;
+};
