@@ -3,7 +3,7 @@ import Wrapper from "../utils/Wrapper";
 import ClearCard from "../utils/cards/ClearCard";
 import AboutCard from "../utils/cards/AboutCard";
 import { CoreTeamDetails } from "../firebase/realtimeDb";
-function About() {
+function Contact() {
     let [teamNames, setteamNames] = useState(null);
     async function LoadCoreTeamData() {
         setteamNames(await CoreTeamDetails());
@@ -11,7 +11,7 @@ function About() {
     useEffect(() => {
         LoadCoreTeamData();
     }, []);
-    // const teamNames = ["Website and App", "Cultural", "XYZ"];
+
     const [selectedTeamName, setSelectedTeamName] = useState("team-1");
     return (
         <Wrapper>
@@ -60,4 +60,4 @@ function About() {
     );
 }
 
-export default About;
+export default Contact;

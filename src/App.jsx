@@ -7,7 +7,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Events from "./components/Events/Events";
 import { AuthContextProvider } from "./components/context/AuthContext";
-import About from "./components/about/About";
+import Contact from "./components/about/Contact";
 
 function App() {
     return (
@@ -20,7 +20,7 @@ function App() {
                             <Route path="/" element={<Home />} />
                             <Route path="register" element={<Register />} />
                             <Route path="competitions" element={<Competitions />} />
-                            <Route path="about" element={<About/>}/>
+                            <Route path="contact" element={<Contact />} />
                             <Route path="*" element={<Error404 />} />
                             <Route path="events" element={<Events />} />
                         </Routes>
