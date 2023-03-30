@@ -2,12 +2,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Register from "./components/register/Register";
 import Error404 from "./components/Errors/Error404";
-import Competitions from "./components/competitions/Competitions";
+import Workshops from "./components/workshops/Workshops";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Events from "./components/Events/Events";
 import { AuthContextProvider } from "./components/context/AuthContext";
-import Contact from "./components/about/Contact";
+import Contact from "./components/Contact/Contact";
+import About from "./components/About/About";
 
 function App() {
     return (
@@ -19,10 +20,11 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="register" element={<Register />} />
-                            <Route path="competitions" element={<Competitions />} />
+                            <Route path="workshops" element={<Workshops />} />
                             <Route path="contact" element={<Contact />} />
                             <Route path="*" element={<Error404 />} />
                             <Route path="events" element={<Events />} />
+                            <Route path="about" element={<About />} />
                         </Routes>
                     </AuthContextProvider>
                 </div>

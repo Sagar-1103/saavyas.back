@@ -60,9 +60,9 @@ const Navbar = () => {
                     src="saavyas-logo.png"
                 />
 
-                <Link to="/competitions">Competitions</Link>
+                <Link to="/workshops">Workshops</Link>
 
-                <Link to="/contact">Contact</Link>
+                <Link to="/about">About Us</Link>
 
                 {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
