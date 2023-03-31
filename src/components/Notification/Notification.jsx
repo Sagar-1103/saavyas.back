@@ -27,7 +27,7 @@ const Notification = () => {
                 </div>
                 <div
                     style={{ flex: 1, height: "100%" }}
-                    onClick={() => setisNew(true)}
+                    onClick={() => setisNew(false)}
                     className="close btn cursor-pointer flex items-center justify-center"
                 >
                     <button
