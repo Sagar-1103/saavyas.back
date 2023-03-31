@@ -10,7 +10,7 @@
         "react-router-dom": "^6.8.1"
     },
     "scripts": {
-        "start": "vite --port 3000",
+        "start": "vite --port 3000 --host",
         "build": "vite build",
         "preview": "vite preview --port 3001"
     },
