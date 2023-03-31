@@ -9,6 +9,7 @@ import Events from "./components/Events/Events";
 import { AuthContextProvider } from "./components/context/AuthContext";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
+import Notification from "./components/Notification/Notification";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <div className="App font-poppins flex flex-col min-h-screen">
                 <div className="flex-grow">
                     <AuthContextProvider>
+                        <Notification />
                         <Navbar />
                         <Routes>
                             <Route path="/" element={<Home />} />
