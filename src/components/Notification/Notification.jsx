@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { GetDetailsOfEndPoint } from "../firebase/realtimeDb";
+import { GetDetailsOfEndPoint, GetDetailsOfEndPointSnapshot } from "../firebase/realtimeDb";
 
 const Notification = () => {
     let [isNew, setisNew] = useState(false);
     let [notificationText, setnotificationText] = useState("");
     async function LoadData() {
         let x = await GetDetailsOfEndPoint("/web_notification");
-        setnotificationText(x.text);
-        setisNew(x.new);
+        GetDetailsOfEndPointSnapshot("/web_notification", (data) => {
+            setisNew(data.new);
+            setnotificationText(data.text);
+        });
         console.log(x);
     }
     useEffect(() => {
