@@ -15,6 +15,33 @@ const useWindowWidth = () => {
     return width;
 };
 
+function useHover() {
+    const [value, setValue] = React.useState(false);
+
+    const ref = React.useRef(null);
+
+    const handleMouseOver = () => setValue(true);
+    const handleMouseOut = () => setValue(false);
+
+    useEffect(
+        () => {
+            const node = ref.current;
+            if (node) {
+                node.addEventListener("mouseover", handleMouseOver);
+                node.addEventListener("mouseout", handleMouseOut);
+
+                return () => {
+                    node.removeEventListener("mouseover", handleMouseOver);
+                    node.removeEventListener("mouseout", handleMouseOut);
+                };
+            }
+        },
+        [ref.current] // Recall only if ref changes
+    );
+
+    return [ref, value];
+}
+
 const EventDetail = () => {
     const { category, eventId } = useParams();
     const navigate = useNavigate();
@@ -22,16 +49,18 @@ const EventDetail = () => {
     const [event, setEvent] = React.useState(null);
     const [sponsors, setSponsors] = React.useState(null);
 
+    const [registerBtnRef, registerBtnIsHovered] = useHover();
+
     useEffect(() => {
         if (!validCategories.includes(category)) {
-            navigate("/events");
+            navigate("/404");
         }
 
         (async () => {
             const events = await getAllEvents();
 
             if (!events[category][eventId]) {
-                navigate("/events");
+                navigate("/404");
             }
 
             setEvent(events[category][eventId]);
@@ -54,37 +83,48 @@ const EventDetail = () => {
         })();
     }, []);
 
-    const bgImage = useMemo(() => {
-        if (width > 768) {
-            return "/images/bg.png";
-        } else {
-            return "/images/bg-mobile.png";
-        }
-    }, [width]);
-
     return (
-        <div className={`w-full h-full flex-1 bg-[url('${bgImage}')] bg-contain bg-no-repeat`}>
+        <div className={`w-full h-full flex-1`}>
+            <img
+                // srcset=" '/images/bg-mobile.png' 480w, '/images/bg.png' 800w"
+                // sizes="(max-width: 600px) 480px, 800px"
+                src="/images/bg.png"
+                alt="Elva dressed as a fairy"
+                className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+            />
+
             <div className="w-[90%] mx-auto xl:w-cap mt-[5rem] md:mt-[8rem] text-white">
                 {/* hero  */}
                 <div className="h-[32rem] w-full bg-[#D9D9D9] bg-opacity-[0.2] rounded-md flex flex-col items-center justify-end">
                     <div className=" w-full flex flex-col md:flex-row md:justify-center md:items-end">
-                        <div className="font-poppins w-full md:flex-1  min-h-[12rem] md:flex md:flex-col md:justify-center md:gap-3 md:px-10">
+                        <div className="font-poppins w-full md:flex-1  min-h-[12rem] md:flex md:flex-col md:justify-center md:gap-3 md:min-h-fit md:m-10 ">
                             <h1 className="font-lostfish text-4xl text-center md:text-left w-full">
                                 {event && event.title}
                             </h1>
                             <p className="text-center md:text-left text-xl ">
-                                PRIZE WORTH: &#8377; {event && " " + event.prize_money}
+                                PRIZE WORTH: {event && "₹ " + String(event.prize_money)}
                             </p>
                             <p className="text-center md:text-left text-xl ">
-                                ENTRY FEE: &#8377; {event && " " + event.entry_fee}
+                                ENTRY FEE: {event && "₹ " + String(event.entry_fee)}
                             </p>
                         </div>
+
                         <Link
-                            to={`/events/${category}/${eventId}/register`}
+                            to={`/events/${category}/${eventId}`}
+                            ref={registerBtnRef}
                             // linear gradient bg 241.26deg, rgba(169, 204, 236, 0.2) 29.13%, rgba(90, 125, 154, 0.13) 61.59%),
-                            className="w-[80%]  md:w-[15rem] md:min-[8rem] mx-auto py-1 flex font-lostfish text-xl justify-center items-center bg-[#A9CCEC] bg-opacity-[0.2] backdrop-blur-sm shadow-md rounded-md mt-5 md:m-5"
+                            className=" cursor-default w-[80%] my-6  md:w-[17rem]  mx-auto py-1 flex font-lostfish text-xl justify-center items-center bg-[#A9CCEC] bg-opacity-[0.2] backdrop-blur-sm shadow-md rounded-md mt-5 md:m-10"
                         >
                             Register
+                            {/* // tooltip */}
+                            <div
+                                className={`${
+                                    registerBtnIsHovered ? "block" : "hidden"
+                                } absolute top-[-3.5rem] z-10 bg-[#000] bg-opacity-[0.6] backdrop-blur-sm shadow-md rounded-md p-2 text-sm font-poppins`}
+                            >
+                                <p className="text-center">Registrations have not started yet</p>
+                                <div className="absolute  w-0 h-0 top-full left-[calc(50%-0.5rem)] border-t-black border-t-[10px] border-opacity-[0.6] border-l-transparent border-l-[5px]  border-r-transparent border-r-[5px] "></div>
+                            </div>
                         </Link>
                     </div>
                 </div>
@@ -128,7 +168,7 @@ const EventDetail = () => {
                 </div>
 
                 {/* image carousel section  */}
-                <div className="w-full h-[32rem] md:mt-[5rem]">
+                <div className="w-full md:w-[760px] mx-auto h-[32rem] md:mt-[5rem]">
                     <Carousel slideInterval={5000}>
                         <img
                             src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
