@@ -46,7 +46,7 @@ const Navbar = () => {
                     backdropFilter: "blur(3.5px)",
                     borderRadius: "18px",
                 }}
-                className="font-lostfish hidden md:flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem] text-xl"
+                className="font-lostfish hidden lg:flex justify-center items-center gap-8 text-white mt-4 fixed p-3 top-[1rem] text-xl"
             >
                 <Link to="/">Home</Link>
 
@@ -84,7 +84,7 @@ const Navbar = () => {
                     backdropFilter: "blur(3.5px)",
                     // borderRadius: "18px",
                 }}
-                className="font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
+                className="font-lostfish lg:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
             >
                 <img
                     style={{
@@ -109,14 +109,7 @@ const Navbar = () => {
                         </svg>
                     </div>
                 ) : (
-                    <div
-                        className="HAMBURGER-ICON space-y-1.5"
-                        onClick={() => setMenuOpen((prev) => !prev)}
-                    >
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
-                    </div>
+                    <image src={"/images/hamburger.png"} className="h-10 w-10 object-cover" />
                 )}
 
                 <div

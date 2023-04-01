@@ -6,7 +6,7 @@ const Home = () => {
     let analytics = pg.analytics;
     return (
         <Wrapper>
-            <div className="flex justify-center text-center text-6xl gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish">
+            <div className="relative h-[80vh] w-screen overflow-x-hidden font-lostfish text-center text-6xl flex justify-center items-center">
                 Sea Shore Soiree
             </div>
 
