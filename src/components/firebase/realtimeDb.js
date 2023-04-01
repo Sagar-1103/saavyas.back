@@ -1,5 +1,6 @@
 import { db } from "./firebaseInit";
 import { ref, get, child, set, onValue } from "firebase/database";
+import { async } from "@firebase/util";
 
 export const getAllData = async () => {
     const dbRef = ref(db);
@@ -43,4 +44,10 @@ export const GetDetailsOfEndPointSnapshot = async (endpoint, callback) => {
         console.log(">> Snapshot", data);
         callback(data);
     });
+};
+
+export const getAllEvents = async () => {
+    const dbRef = ref(db);
+    const data = await (await get(child(dbRef, "/events"))).val();
+    return data;
 };

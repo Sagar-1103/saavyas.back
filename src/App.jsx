@@ -7,15 +7,17 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Events from "./components/Events/Events";
 import { AuthContextProvider } from "./components/context/AuthContext";
+import EventRegister from "./components/register/EventRegister";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 import Notification from "./components/Notification/Notification";
+import EventDetail from "./components/Events/EventDetail";
 
 function App() {
     return (
         <BrowserRouter>
             <div className="App font-poppins flex flex-col min-h-screen">
-                <div className="flex-grow">
+                <div className="flex-grow flex flex-col">
                     <AuthContextProvider>
                         <Notification />
                         <Navbar />
@@ -26,6 +28,8 @@ function App() {
                             <Route path="contact" element={<Contact />} />
                             <Route path="*" element={<Error404 />} />
                             <Route path="events" element={<Events />} />
+                            <Route path="events/register" element={<EventRegister />} />
+                            <Route path="events/:category/:eventId" element={<EventDetail />} />
                             <Route path="about" element={<About />} />
                         </Routes>
                     </AuthContextProvider>
