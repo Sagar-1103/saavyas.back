@@ -56,7 +56,7 @@ const Navbar = () => {
                     style={{
                         width: "50px",
                     }}
-                    src="saavyas-logo.png"
+                    src="/saavyas-logo.png"
                 />
                 <Link to="/events">Events</Link>
 
