@@ -1,8 +1,11 @@
 import React from "react";
 
-function ClearCard({ children, className = "" }) {
+function ClearCard({ children, className = "", callback = null }) {
     return (
         <div
+            onClick={() => {
+                if (callback) callback();
+            }}
             style={{
                 background:
                     "linear-gradient(241.26deg,rgba(169, 204, 236, 0.2) 29.13%,rgba(90, 125, 154, 0.13) 61.59%)",
