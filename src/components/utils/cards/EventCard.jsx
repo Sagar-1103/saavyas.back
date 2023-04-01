@@ -3,10 +3,13 @@ import {BsFillCalendar2WeekFill} from "react-icons/bs"
 import {HiOutlineLocationMarker} from "react-icons/hi"
 import {HiCircleStack} from "react-icons/hi2"
 import {AiOutlineStar} from "react-icons/ai"
+import { useNavigate } from 'react-router-dom'
 function EventCard({event}) {
     console.log(event)
+    const navigate = useNavigate();
+
   return (
-        <div className="flex md:flex-col rounded-lg md:justify-start md:items-start md:px-2 justify-center items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3">
+        <div onClick={()=>navigate("/event-id-124")} className="flex cursor-pointer md:flex-col rounded-lg md:justify-start md:items-start md:px-2 justify-center items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3">
             <div className="text-sm absolute top-0 right-[0.2rem] bg-[#17294d] rounded-md p-1">
                 10:12:34:55
             </div>

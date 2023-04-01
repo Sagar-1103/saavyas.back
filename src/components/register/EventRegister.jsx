@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { getEventById, getEventDetails } from "../firebase/realtimeDb";
 
 const Contain = ({ children }) => {
     return (
@@ -26,8 +24,6 @@ const Input = ({ label, type, placeholder }) => {
 };
 
 const EventRegister = () => {
-    let [searchParams, setSearchParams] = useSearchParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         const id = searchParams.get("id");

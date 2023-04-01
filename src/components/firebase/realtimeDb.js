@@ -1,5 +1,6 @@
 import { db } from "./firebaseInit";
-import { ref, get, child, set } from "firebase/database";
+import { ref, get, child, set, onValue } from "firebase/database";
+import { async } from "@firebase/util";
 
 export const getAllData = async () => {
     const dbRef = ref(db);
@@ -22,17 +23,31 @@ export const createNewUser = async (data) => {
     return res;
 };
 
-export const getEventDetails = async () => {
+export const CoreTeamDetails = async () => {
     const dbRef = ref(db);
-    const data = await (await get(child(dbRef, `events/`))).val();
-    console.log({ events: data });
-    return data;
-}
+    const res = await (await get(child(dbRef, `core-teams-details/`))).val();
+    console.log(">> Firebase | Fetched Core Team Details \n", res);
+    return res;
+};
 
-export const getEventById = async (id) => {
+export const GetDetailsOfEndPoint = async (endpoint) => {
     const dbRef = ref(db);
-    console.log("id", id);
-    const data = await (await get(child(dbRef, `events/${id}`))).val();
-    console.log({ data });
+    const res = await (await get(child(dbRef, endpoint))).val();
+    console.log(">> Firebase | Fetched data with endpoint: " + endpoint + "\n", res);
+    return res;
+};
+
+export const GetDetailsOfEndPointSnapshot = async (endpoint, callback) => {
+    const dbRef = ref(db, endpoint);
+    onValue(dbRef, (snapshot) => {
+        const data = snapshot.val();
+        console.log(">> Snapshot", data);
+        callback(data);
+    });
+};
+
+export const getAllEvents = async () => {
+    const dbRef = ref(db);
+    const data = await (await get(child(dbRef, "/events"))).val();
     return data;
-}
+};
