@@ -52,17 +52,15 @@ const Navbar = () => {
 
                 <Link to="/contact">Contact </Link>
 
-                <Link to="/events">Events</Link>
                 <img
                     style={{
                         width: "50px",
                     }}
                     src="saavyas-logo.png"
                 />
+                <Link to="/events">Events</Link>
 
-                <Link to="/workshops">Workshops</Link>
-
-                <Link to="/about">About Us</Link>
+                <Link to="/workshops">Workshop</Link>
                 {/* 
                 {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
@@ -126,8 +124,6 @@ const Navbar = () => {
                     onClick={() => setMenuOpen((prev) => !prev)}
                 >
                     <Link to="/">Home</Link>
-
-                    <Link to="/about">About</Link>
 
                     <Link to="/events">Events</Link>
 
