@@ -53,14 +53,14 @@ const EventDetail = () => {
 
     useEffect(() => {
         if (!validCategories.includes(category)) {
-            navigate("/events");
+            navigate("/404");
         }
 
         (async () => {
             const events = await getAllEvents();
 
             if (!events[category][eventId]) {
-                navigate("/events");
+                navigate("/404");
             }
 
             setEvent(events[category][eventId]);
