@@ -6,13 +6,15 @@ import { CoreTeamDetails } from "../firebase/realtimeDb";
 function Contact() {
     let [teamNames, setteamNames] = useState(null);
     async function LoadCoreTeamData() {
-        setteamNames(await CoreTeamDetails());
+        let x = await CoreTeamDetails();
+        console.log(x);
+        setteamNames(x);
     }
     useEffect(() => {
         LoadCoreTeamData();
     }, []);
 
-    const [selectedTeamName, setSelectedTeamName] = useState("team-1");
+    const [selectedTeamName, setSelectedTeamName] = useState("Core Team");
     return (
         <Wrapper>
             <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish">
