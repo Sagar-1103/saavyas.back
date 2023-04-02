@@ -17,7 +17,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App font-poppins flex flex-col min-h-screen">
-                <div className="flex-grow flex flex-col">
+                <div className="flex-grow flex flex-col items-center">
                     <AuthContextProvider>
                         <Notification />
                         <Navbar />

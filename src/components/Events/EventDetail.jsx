@@ -75,7 +75,7 @@ const EventDetail = () => {
                 // sizes="(max-width: 600px) 480px, 800px"
                 src="/images/bg.png"
                 alt="Elva dressed as a fairy"
-                className="absolute top-0 left-0 w-full h-full object-cover z-[-1]"
+                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-1]"
             />
 
             <div className="w-[90%] mx-auto xl:w-cap mt-[5rem] md:mt-[8rem] text-white">

@@ -18,7 +18,7 @@ const Events = () => {
 
     return (
         <Wrapper>
-            <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish">
+            <div className="w-full flex justify-center text-center gap-[1.75rem] md:pt-[20rem] pt-[15rem] h-80 pb-40 font-lostfish">
                 <ClearCard className="cursor-pointer">Technical</ClearCard>
                 <ClearCard className="cursor-pointer">Cultural</ClearCard>
             </div>
