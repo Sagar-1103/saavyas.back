@@ -12,7 +12,7 @@ function EventCard({ event, eventType }) {
     return (
         <div
             onClick={() => navigate("/events/" + eventType + "/" + event.eid)}
-            className="flex cursor-pointer md:flex-col rounded-lg md:justify-start md:items-start md:px-2 justify-center items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3"
+            className="flex cursor-pointer md:flex-col rounded-lg justify-between md:items-start md:px-2 h-full items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3"
         >
             <div className="text-sm absolute top-0 right-[0.2rem] bg-[#17294d] rounded-md p-1 hidden md:block">
                 {eventType == "technical" ? "Technical" : "Cultural"}
@@ -26,7 +26,7 @@ function EventCard({ event, eventType }) {
                 />
             )}
 
-            <div className="bg-[#111e38] p-2 md:w-[250px] md:h-[250px] w-[40%] h-[150px] rounded-md flex justify-center items-center">
+            <div className="p-2 md:w-[250px] md:h-[250px] w-[40%] h-[150px] rounded-md flex justify-center items-center">
                 <img
                     src={
                         event.event_images
@@ -41,7 +41,7 @@ function EventCard({ event, eventType }) {
             </div>
 
             <div className="text-left w-[90%] h-[100%]  rounded-md flex gap-1 flex-col justify-center md:items-left md:justify-start">
-                <span className="text-left font-semibold md:text-lg text-lg font-lostfish">
+                <span className="text-left font-semibold md:text-xl text-lg">
                     {event.title.length < 20 ? (
                         event.title
                     ) : (
