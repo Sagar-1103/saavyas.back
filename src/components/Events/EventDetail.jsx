@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { getAllEvents } from "../firebase/realtimeDb";
 import Error404 from "../Errors/Error404";
 
-let validCategories = ["technical", "cultural"];
+let validCategories = ["technical", "cultural", "workshop"];
 
 const useWindowWidth = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -214,19 +214,24 @@ const EventDetail = () => {
                 )}
 
                 {/* event rules section */}
-                <div className="w-full mt-[3rem] md:mt-[5rem] ">
-                    <h3 className="font-lostfish text-3xl underline underline-offset-[5px] text-center ">
-                        Rules
-                    </h3>
-                    <ul className="flex flex-col gap-2 mt-6 list-disc  w-[90%] mx-auto">
-                        {event &&
-                            event.rules.map((rule, index) => (
-                                <li key={index} className="font-poppins text-xl font-normal mt-1">
-                                    {rule}
-                                </li>
-                            ))}
-                    </ul>
-                </div>
+                {event && event.rules && (
+                    <div className="w-full mt-[3rem] md:mt-[5rem] ">
+                        <h3 className="font-lostfish text-3xl underline underline-offset-[5px] text-center ">
+                            Rules
+                        </h3>
+                        <ul className="flex flex-col gap-2 mt-6 list-disc  w-[90%] mx-auto">
+                            {event &&
+                                event.rules.map((rule, index) => (
+                                    <li
+                                        key={index}
+                                        className="font-poppins text-xl font-normal mt-1"
+                                    >
+                                        {rule}
+                                    </li>
+                                ))}
+                        </ul>
+                    </div>
+                )}
 
                 {/* event organizers section  */}
                 <div className="w-full mt-[3rem] md:mt-[5rem] pb-[3rem] md:pb-[5rem]">
