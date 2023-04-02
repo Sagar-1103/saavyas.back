@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../utils/Wrapper";
-import ClearCard from "../utils/cards/ClearCard";
 import EventCard from "../utils/cards/EventCard";
 import { GetDetailsOfEndPoint } from "../firebase/realtimeDb";
+import Loading from "../Loading/Loading";
 
 const Workshops = () => {
     let [workshops, setWorkshops] = useState(null);
@@ -31,7 +31,12 @@ const Workshops = () => {
                             ))}
                     </div>
                 ) : (
-                    <h1 className="p-[10rem] text-3xl">We will be updating our Workshops Soon!</h1>
+                    <>
+                        <h1 className="p-[10rem] text-3xl flex items-center flex-col">
+                            <Loading />
+                            On the Way!
+                        </h1>
+                    </>
                 )}
             </div>
         </Wrapper>
