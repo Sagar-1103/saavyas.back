@@ -8,7 +8,7 @@ const Error404 = () => {
                 style={{ minWidth: "300px" }}
                 className="w-1/3 py-48 flex items-center justify-center flex-col"
             >
-                <img className="w-full " src="./images/error404bg.png" alt="" />
+                <img className="w-full " src="/images/error404bg.png" alt="" />
 
                 <Link
                     to={`/`}

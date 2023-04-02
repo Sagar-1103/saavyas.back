@@ -2,6 +2,7 @@ import { Carousel } from "flowbite-react";
 import React, { useEffect, useMemo } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { getAllEvents } from "../firebase/realtimeDb";
+import Error404 from "../Errors/Error404";
 
 let validCategories = ["technical", "cultural"];
 
@@ -47,7 +48,7 @@ const EventDetail = () => {
     const navigate = useNavigate();
     const width = useWindowWidth();
     const [event, setEvent] = React.useState(null);
-
+    const [notfound, setnotfound] = React.useState();
     const [registerBtnRef, registerBtnIsHovered] = useHover();
 
     useEffect(() => {
@@ -59,7 +60,7 @@ const EventDetail = () => {
             const events = await getAllEvents();
 
             if (!events[category][eventId]) {
-                navigate("/404");
+                setnotfound(true);
             }
 
             setEvent(events[category][eventId]);
@@ -68,6 +69,7 @@ const EventDetail = () => {
         })();
     }, []);
 
+    if (notfound) return <Error404 />;
     return (
         <div className={`w-full h-full flex-1`}>
             <img
