@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { UserAuth } from "../context/AuthContext";
 import { isUserAlreadyInDb } from "../firebase/realtimeDb";
 
 const Navbar = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     const { googleSignIn, logOut, user } = UserAuth();
     const [justSignedIn, setJustSignedIn] = React.useState(false);
     const navigate = useNavigate();
