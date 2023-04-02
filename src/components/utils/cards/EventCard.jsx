@@ -16,9 +16,16 @@ function EventCard({ event, eventType }) {
             <div className="text-sm absolute top-0 right-[0.2rem] bg-[#17294d] rounded-md p-1">
                 10:12:34:55
             </div>
+
             <div className="bg-[#111e38] p-2 md:w-[250px] md:h-[250px] w-[40%] h-[150px] rounded-md flex justify-center items-center">
                 <img
-                    src={event.event_images[Math.floor(Math.random() * event.event_images.length)]}
+                    src={
+                        event.event_images
+                            ? event.event_images[
+                                  Math.floor(Math.random() * event.event_images.length)
+                              ]
+                            : "https://ticketlinkz.com/wp-content/uploads/2014/12/EVENT-PLACEHOLDER.jpg"
+                    }
                     alt="img"
                     className="max-h-[150px] md:max-h-[250px]"
                 />
