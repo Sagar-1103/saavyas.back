@@ -3,6 +3,7 @@ import Wrapper from "../utils/Wrapper";
 import ClearCard from "../utils/cards/ClearCard";
 import AboutCard from "../utils/cards/AboutCard";
 import { CoreTeamDetails } from "../firebase/realtimeDb";
+import { IoIosArrowDown } from "react-icons/io";
 function Contact() {
     let [teamNames, setteamNames] = useState(null);
     async function LoadCoreTeamData() {
@@ -46,7 +47,8 @@ function Contact() {
                 >
                     {teamNames &&
                         Object.entries(teamNames).map(([key, value]) => (
-                            <option key={key} className="text-black" value={key}>
+                            <option key={key} className="flex text-black" value={key}>
+                                <IoIosArrowDown className="text-white" />
                                 {key}
                             </option>
                         ))}
@@ -59,7 +61,7 @@ function Contact() {
                 </select>
 
                 {teamNames && (
-                    <div className="flex w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll">
+                    <div className="flex w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto items-center flex-col gap-2 max-h-[500px] md:max-h-[300px] overflow-y-scroll items-stretch">
                         {teamNames[selectedTeamName].map((user) => (
                             <AboutCard key={user.name} user={user} />
                         ))}
