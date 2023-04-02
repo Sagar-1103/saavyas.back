@@ -34,11 +34,11 @@ const Events = () => {
                 </div>
             </div>
 
-            <div className="p-3 w-full max-w-[1280px] flex justify-center items-center flex-col gap-8">
+            <div className="p-3 w-full  flex justify-center items-center flex-col gap-8">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Cultural Events
                 </div>
-                <div className="flex w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll">
+                <div className="flex w-full max-w-[1280px] md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll">
                     {events &&
                         Object.keys(events.cultural).map((key) => (
                             <EventCard eventType="cultural" event={events.cultural[key]} />
