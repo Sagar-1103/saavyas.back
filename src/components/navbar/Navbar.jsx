@@ -88,7 +88,7 @@ const Navbar = () => {
                     style={{
                         width: "30px",
                     }}
-                    src="saavyas-logo.png"
+                    src="/saavyas-logo.png"
                 />
 
                 {menuOpen ? (
