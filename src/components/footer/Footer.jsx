@@ -102,12 +102,17 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="https://www.nitgoa.ac.in/"
-                                    className="w-full text-right flex items-center flex-row-reverse lg:text-right bg-red"
+                                    className="w-full text-right flex items-center flex-row-reverse lg:text-right bg-red hover:text-[#F9A826]"
                                 >
-                                    &nbsp; NIT Goa
+                                    &nbsp; Farmagudi, Ponda
                                     <HiOutlineLocationMarker />
                                 </a>
-                                <p className="text-right  w-full ">contact@saavyas.org</p>
+                                <a
+                                    href="mailto:contact@saavyas.org"
+                                    className="text-right  w-full hover:text-[#F9A826]"
+                                >
+                                    contact@saavyas.org
+                                </a>
                             </div>
                         ) : (
                             <ul className="w-1/2 flex flex-col justify-start items-center md:items-start">
@@ -145,12 +150,17 @@ const Footer = () => {
                     {width >= 768 ? (
                         <>
                             <a
-                                href="https://www.nitgoa.ac.in/"
-                                className="text-center flex items-center lg:text-left"
+                                href="https://goo.gl/maps/kt8Uqw6KGKhFYMv59"
+                                className="text-center flex items-center lg:text-left hover:text-[#F9A826]"
                             >
-                                <HiOutlineLocationMarker /> &nbsp; NIT Goa
+                                <HiOutlineLocationMarker /> &nbsp; Farmagudi, Ponda
                             </a>
-                            <p className="  text-right lg:w-1/3 ">contact@saavyas.org</p>
+                            <a
+                                href="mailto:contact@saavyas.org"
+                                className="  text-right lg:w-1/3 hover:text-[#F9A826]"
+                            >
+                                contact@saavyas.org
+                            </a>
                         </>
                     ) : (
                         <div className="w-full my-3 gap-3 flex flex-col justify-center items-center">
