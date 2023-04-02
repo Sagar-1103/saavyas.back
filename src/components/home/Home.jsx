@@ -6,7 +6,7 @@ const Home = () => {
     let analytics = pg.analytics;
     return (
         <Wrapper>
-            <div className="flex justify-center text-left text-5xl md:text-6xl gap-[1.75rem] p-[20px] h-80 pb-40 font-lostfish pt-[300px] md:pt-[400px]">
+            <div className="flex justify-center text-left text-5xl md:text-6xl gap-[1.75rem] p-[20px] h-80 pb-40 font-lostfish pt-[300px] md:pt-[400px] text-left md:w-full">
                 Sea Shore Soiree
             </div>
 
@@ -14,19 +14,28 @@ const Home = () => {
                 <div className="font-semibold justify-center items-center text-4xl font-lostfish">
                     About Us
                 </div>
-                <div className="w-[75%] justify-between items-center text-center text-md xl:w-[1280px] mx-auto">
-                    NIT Goa is one of the Premier Institutes of National Importance in India,
-                    currently operating at a transit campus at Ponda, while waiting for our
-                    Permanent Campus at Cuncolim to be ready. <br /> <br />
-                    It is no small feat that we have secured a NIRF rank of 88 in a transit campus,
-                    this shows the true potential of NIT Goa for growth and expansion. NIT Goa has
-                    organised various events and activities for its students and is now bringing
-                    SAAVYAS 2023 after a break of 3 years. <br /> <br /> SAAVYAS is NIT Goa's very
-                    own Techno-Cultural Fest, it comprises of a beautiful balance of various events
-                    catering to the very diverse audience of Goa. Students from all over Goa and
-                    beyond come together to participate in the event. <br /> <br />
-                    This year we wish to host the event on a much higher scale and make the fest a
-                    grand spectacle and a memorable event.
+                <div className="w-full md:w-[75%] flex lg:flex-row  flex-col justify-center items-center text-center md:text-left text-md xl:w-[1280px] mx-auto">
+                    <div className="h-full flex justify-center items-center  lg:mx-[4rem] my-[3rem] lg:ml-[8rem] max-w-[200px]">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/en/e/e6/NIT_Goa_logo.png"
+                            alt=""
+                            className="rounded-full"
+                        />
+                    </div>
+                    <div className="w-3/4">
+                        NIT Goa is one of the Premier Institutes of National Importance in India,
+                        currently operating at a transit campus at Ponda, while waiting for our
+                        Permanent Campus at Cuncolim to be ready. It is no small feat that we have
+                        secured a NIRF rank of 88 in a transit campus, this shows the true potential
+                        of NIT Goa for growth and expansion. NIT Goa has organised various events
+                        and activities for its students and is now bringing SAAVYAS 2023 after a
+                        break of 3 years. <br /> <br /> SAAVYAS is NIT Goa's very own
+                        Techno-Cultural Fest, it comprises of a beautiful balance of various events
+                        catering to the very diverse audience of Goa. Students from all over Goa and
+                        beyond come together to participate in the event. This year we wish to host
+                        the event on a much higher scale and make the fest a grand spectacle and a
+                        memorable event.
+                    </div>
                 </div>
             </div>
 
