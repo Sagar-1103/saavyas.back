@@ -34,7 +34,6 @@ const Register = () => {
 
         const res = await createNewUser(newUser);
         navigate("/");
-        console.log(res);
     };
 
     useEffect(() => {

@@ -13,16 +13,28 @@ function AboutCard(props) {
                 className="bg-contain bg-center bg-no-repeat bg-[rgba(29, 48, 86, 0)] p-2 md:w-[250px] rounded-[50%] md:h-[250px] w-[150px] h-[150px] flex justify-center items-center"
             />
 
-            <div className="text-left w-[60%] h-[100%]  rounded-md flex gap-1 flex-col justify-center md:items-left md:justify-start">
+            <div className="text-left w-[98%] h-[100%]  rounded-md flex gap-1 flex-col justify-center md:items-left md:justify-start">
                 <span className="text-left font-semibold md:text-lg text-lg font-lostfish">
                     {props.user.name}
                 </span>
-                <span className="font-poppins text-left text-xs flex gap-2 items-center">
-                    {props.user.phone}
-                </span>
-                <span className="font-poppins text-left text-xs flex gap-2 items-center">
-                    abhiraajverma@gmail.com
-                </span>
+                <a href={"tel:" + props.user.contact}>
+                    <span className="font-poppins text-left text-m flex gap-2 items-center">
+                        {props.user.contact}
+                    </span>
+                </a>
+                <a href={"mailto:" + props.user.email}>
+                    <span
+                        style={{
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            maxWidth: "25ch",
+                        }}
+                        className="font-poppins text-left text-m flex gap-2 items-center"
+                    >
+                        {props.user.email}
+                    </span>
+                </a>
             </div>
         </div>
     );

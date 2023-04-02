@@ -3,14 +3,21 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@esbuild/win32-x64": "^0.17.15",
+        "@heroicons/react": "^2.0.16",
+        "@hookform/resolvers": "^2.9.11",
         "firebase": "^9.18.0",
+        "flowbite": "^1.6.4",
+        "flowbite-react": "^0.4.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-hook-form": "^7.43.7",
         "react-icons": "^4.8.0",
-        "react-router-dom": "^6.8.1"
+        "react-router-dom": "^6.8.1",
+        "zod": "^3.21.4"
     },
     "scripts": {
-        "start": "vite --port 3000",
+        "start": "vite --port 3000 --host",
         "build": "vite build",
         "preview": "vite preview --port 3001"
     },

@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { UserAuth } from "../context/AuthContext";
 import { isUserAlreadyInDb } from "../firebase/realtimeDb";
 
 const Navbar = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     const { googleSignIn, logOut, user } = UserAuth();
     const [justSignedIn, setJustSignedIn] = React.useState(false);
     const navigate = useNavigate();
@@ -50,20 +55,18 @@ const Navbar = () => {
             >
                 <Link to="/">Home</Link>
 
-                <Link to="/about">About</Link>
+                <Link to="/contact">Contact </Link>
 
-                <Link to="/events">Events</Link>
                 <img
                     style={{
-                        width: "50px",
+                        height: "50px",
                     }}
-                    src="saavyas-logo.png"
+                    src="/saavyas-logo.png"
                 />
+                <Link to="/events">Events</Link>
 
-                <Link to="/competitions">Competitions</Link>
-
-                <Link to="/contact">Contact</Link>
-
+                <Link to="/workshops">Workshop</Link>
+                {/* 
                 {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
                         Register
@@ -73,7 +76,7 @@ const Navbar = () => {
                         {" "}
                         Sign Out{" "}
                     </button>
-                )}
+                )} */}
             </div>
 
             <div
@@ -90,7 +93,7 @@ const Navbar = () => {
                     style={{
                         width: "30px",
                     }}
-                    src="saavyas-logo.png"
+                    src="/saavyas-logo.png"
                 />
 
                 {menuOpen ? (
@@ -127,15 +130,13 @@ const Navbar = () => {
                 >
                     <Link to="/">Home</Link>
 
-                    <Link to="/about">About</Link>
-
                     <Link to="/events">Events</Link>
 
-                    <Link to="/competitions">Competitions</Link>
+                    <Link to="/workshops">Workshops</Link>
 
                     <Link to="/contact">Contact</Link>
 
-                    {!user ? (
+                    {/* {!user ? (
                         <button onClick={handleSignIn} className="text-left">
                             Sign Up
                         </button>
@@ -143,7 +144,7 @@ const Navbar = () => {
                         <button onClick={logOut} className="text-left">
                             Sign Out
                         </button>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>

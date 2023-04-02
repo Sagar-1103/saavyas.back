@@ -3,7 +3,8 @@ import Wrapper from "../utils/Wrapper";
 import ClearCard from "../utils/cards/ClearCard";
 import AboutCard from "../utils/cards/AboutCard";
 import { CoreTeamDetails } from "../firebase/realtimeDb";
-function About() {
+import { IoIosArrowDown } from "react-icons/io";
+function Contact() {
     let [teamNames, setteamNames] = useState(null);
     async function LoadCoreTeamData() {
         setteamNames(await CoreTeamDetails());
@@ -11,13 +12,23 @@ function About() {
     useEffect(() => {
         LoadCoreTeamData();
     }, []);
-    // const teamNames = ["Website and App", "Cultural", "XYZ"];
-    const [selectedTeamName, setSelectedTeamName] = useState("team-1");
+
+    const [selectedTeamName, setSelectedTeamName] = useState("Core Team");
     return (
         <Wrapper>
             <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish">
-                <ClearCard>Technical</ClearCard>
-                <ClearCard>Cultural</ClearCard>
+                <ClearCard
+                    className="cursor-pointer select-none"
+                    callback={() => setSelectedTeamName("Technical Core Team")}
+                >
+                    Technical
+                </ClearCard>
+                <ClearCard
+                    className="cursor-pointer select-none"
+                    callback={() => setSelectedTeamName("Cultural Core Team")}
+                >
+                    Cultural
+                </ClearCard>
             </div>
             <div className="p-3 w-full flex justify-center items-center flex-col gap-8 font-lostfish">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
@@ -36,7 +47,8 @@ function About() {
                 >
                     {teamNames &&
                         Object.entries(teamNames).map(([key, value]) => (
-                            <option key={key} className="text-black" value={key}>
+                            <option key={key} className="flex text-black" value={key}>
+                                <IoIosArrowDown className="text-white" />
                                 {key}
                             </option>
                         ))}
@@ -49,7 +61,7 @@ function About() {
                 </select>
 
                 {teamNames && (
-                    <div className="flex w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll">
+                    <div className="flex w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto items-center flex-col gap-2 max-h-[500px] md:max-h-[300px] overflow-y-scroll items-stretch">
                         {teamNames[selectedTeamName].map((user) => (
                             <AboutCard key={user.name} user={user} />
                         ))}
@@ -60,4 +72,4 @@ function About() {
     );
 }
 
-export default About;
+export default Contact;

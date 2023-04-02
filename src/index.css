@@ -4,11 +4,36 @@
     font-family: "lostfish";
     src: url("/fonts/LostFish.ttf") format("truetype");
     src: url("/fonts/LostFish.woff") format("woff"),
-        /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ url("/fonts/LostFish.ttf")
-            format("truetype");
+        /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url("/fonts/LostFish.ttf") format("truetype");
     /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+::-webkit-scrollbar {
+    padding-top: 20px;
+    width: 5px;
+    height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff77;
+    border-radius: 50px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #dcdcdc;
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+    border-radius: 50px;
+}
