@@ -16,7 +16,7 @@ function Contact() {
     const [selectedTeamName, setSelectedTeamName] = useState("Core Team");
     return (
         <Wrapper>
-            <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish">
+            <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish max-w-[1800px]">
                 <ClearCard
                     className="cursor-pointer select-none"
                     callback={() => setSelectedTeamName("Technical Core Team")}
@@ -30,7 +30,7 @@ function Contact() {
                     Cultural
                 </ClearCard>
             </div>
-            <div className="p-3 w-full flex justify-center items-center flex-col gap-8 font-lostfish">
+            <div className="p-3 w-full flex justify-center items-center flex-col gap-8 font-lostfish max-w-[1800px]">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Core Teams
                 </div>
