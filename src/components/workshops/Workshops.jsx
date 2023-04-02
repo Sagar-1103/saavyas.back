@@ -9,7 +9,6 @@ const Workshops = () => {
 
     async function LoadData() {
         let x = await GetDetailsOfEndPoint("workshops/");
-        console.log(x);
         setWorkshops(x);
     }
 

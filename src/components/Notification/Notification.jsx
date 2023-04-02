@@ -10,7 +10,6 @@ const Notification = () => {
             setisNew(data.new);
             setnotificationText(data.text);
         });
-        console.log(x);
     }
     useEffect(() => {
         LoadData();

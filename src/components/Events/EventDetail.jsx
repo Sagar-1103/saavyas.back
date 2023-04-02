@@ -64,8 +64,6 @@ const EventDetail = () => {
             }
 
             setEvent(events[category][eventId]);
-
-            console.log(event);
         })();
     }, []);
 

@@ -5,7 +5,6 @@ import { HiCircleStack } from "react-icons/hi2";
 import { AiOutlineStar } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 function EventCard({ event, eventType }) {
-    console.log(event);
     const navigate = useNavigate();
 
     return (

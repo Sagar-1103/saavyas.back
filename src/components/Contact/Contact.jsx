@@ -6,9 +6,7 @@ import { CoreTeamDetails } from "../firebase/realtimeDb";
 function Contact() {
     let [teamNames, setteamNames] = useState(null);
     async function LoadCoreTeamData() {
-        let x = await CoreTeamDetails();
-        console.log(x);
-        setteamNames(x);
+        setteamNames(await CoreTeamDetails());
     }
     useEffect(() => {
         LoadCoreTeamData();

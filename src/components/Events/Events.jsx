@@ -9,7 +9,6 @@ const Events = () => {
 
     async function LoadData() {
         let x = await GetDetailsOfEndPoint("events/");
-        console.log(x);
         setEvents(x);
     }
 
