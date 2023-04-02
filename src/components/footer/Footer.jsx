@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiOutlineLocationMarker } from "react-icons/all";
 
 const useWindowWidth = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -39,16 +40,6 @@ const footerSocialLinks = [
 ];
 
 const navlinks = [
-    {
-        id: "saavyas-about",
-        name: "About",
-        link: "/about",
-    },
-    {
-        id: "saavyas-sponsors",
-        name: "Sponsors",
-        link: "/sponsors",
-    },
     {
         id: "saavyas-merchandise",
         name: "Merchandise",
@@ -109,7 +100,13 @@ const Footer = () => {
                                 <h3 className="font-lostfish font-bold w-full text-base text-right ">
                                     Contact Us
                                 </h3>
-                                <p className="text-right w-full">(434) 546-4356</p>
+                                <a
+                                    href="https://www.nitgoa.ac.in/"
+                                    className="w-full text-right flex items-center flex-row-reverse lg:text-right bg-red"
+                                >
+                                    &nbsp; NIT Goa
+                                    <HiOutlineLocationMarker />
+                                </a>
                                 <p className="text-right  w-full ">contact@saavyas.org</p>
                             </div>
                         ) : (
@@ -147,8 +144,13 @@ const Footer = () => {
                 <div className="flex flex-col mt-3 lg:flex-row lg:justify-between lg:mt-10 justify-center align-middle">
                     {width >= 768 ? (
                         <>
-                            <p className="text-center lg:w-1/3 lg:text-left">(434) 546-4356</p>
-                            <p className="text-center lg:w-1/3 ">contact@saavyas.org</p>
+                            <a
+                                href="https://www.nitgoa.ac.in/"
+                                className="text-center flex items-center lg:text-left"
+                            >
+                                <HiOutlineLocationMarker /> &nbsp; NIT Goa
+                            </a>
+                            <p className="  text-right lg:w-1/3 ">contact@saavyas.org</p>
                         </>
                     ) : (
                         <div className="w-full my-3 gap-3 flex flex-col justify-center items-center">
