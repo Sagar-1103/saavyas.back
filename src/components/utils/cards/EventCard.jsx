@@ -4,9 +4,10 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import { HiCircleStack } from "react-icons/hi2";
 import { AiOutlineStar } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+
 function EventCard({ event, eventType }) {
     const navigate = useNavigate();
-
+    console.log(event)
     return (
         <div
             onClick={() => navigate("/events/" + eventType + "/" + event.eid)}
@@ -15,6 +16,9 @@ function EventCard({ event, eventType }) {
             <div className="text-sm absolute top-0 right-[0.2rem] bg-[#17294d] rounded-md p-1">
                 10:12:34:55
             </div>
+
+            
+            {event.college_trophy && <img src="images/ct.png" alt="campus trophy" className="top-0 w-[50px] left-0 absolute z-[100090]"/>}
 
             <div className="bg-[#111e38] p-2 md:w-[250px] md:h-[250px] w-[40%] h-[150px] rounded-md flex justify-center items-center">
                 <img
