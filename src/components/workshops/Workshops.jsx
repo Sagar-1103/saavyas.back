@@ -32,7 +32,7 @@ const Workshops = () => {
                     </div>
                 ) : (
                     <>
-                        <h1 className="p-[10rem] text-3xl flex items-center flex-col">
+                        <h1 className="p-[10rem] md:text-3xl text-xl flex items-center flex-col">
                             <Loading />
                             On the Way!
                         </h1>
