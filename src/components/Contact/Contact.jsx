@@ -48,7 +48,6 @@ function Contact() {
                     {teamNames &&
                         Object.entries(teamNames).map(([key, value]) => (
                             <option key={key} className="flex text-black" value={key}>
-                                <IoIosArrowDown className="text-white" />
                                 {key}
                             </option>
                         ))}

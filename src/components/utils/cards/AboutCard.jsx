@@ -14,7 +14,7 @@ function AboutCard(props) {
             />
 
             <div className="text-left w-[98%] h-[100%]  rounded-md flex gap-1 flex-col justify-center md:items-left md:justify-start">
-                <span className="text-left font-semibold md:text-lg text-lg font-lostfish">
+                <span className="text-left font-semibold md:text-lg text-lg font-poppins">
                     {props.user.name}
                 </span>
                 <a href={"tel:" + props.user.contact}>

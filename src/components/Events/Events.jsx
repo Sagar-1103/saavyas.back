@@ -28,7 +28,11 @@ const Events = () => {
                 <div className="flex max-w-[1280px] w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll  items-stretch">
                     {events &&
                         Object.keys(events.technical).map((key) => (
-                            <EventCard eventType="technical" event={events.technical[key]} />
+                            <EventCard
+                                key={key}
+                                eventType="technical"
+                                event={events.technical[key]}
+                            />
                         ))}
                 </div>
             </div>
@@ -40,7 +44,11 @@ const Events = () => {
                 <div className="flex w-full max-w-[1280px] md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max  flex-col gap-2 max-h-[500px] overflow-y-scroll items-stretch">
                     {events &&
                         Object.keys(events.cultural).map((key) => (
-                            <EventCard eventType="cultural" event={events.cultural[key]} />
+                            <EventCard
+                                key={key}
+                                eventType="cultural"
+                                event={events.cultural[key]}
+                            />
                         ))}
                 </div>
             </div>

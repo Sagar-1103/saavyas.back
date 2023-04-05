@@ -148,7 +148,8 @@ const EventDetail = () => {
                                 ) : event.title.includes("(") ? (
                                     <>
                                         {event.title.split("(")[0]}
-                                        <br />({event.title.split("(")[1]}
+                                        <br />
+                                        {event.title.split("(")[1]}
                                     </>
                                 ) : (
                                     event.title
@@ -160,7 +161,7 @@ const EventDetail = () => {
                         {event &&
                             event.desc
                                 .split("<br/>")
-                                .map((each_para) => <p innerText="123">{each_para}</p>)}
+                                .map((each_para) => <p key={each_para}>{each_para}</p>)}
                         <p className="font-poppins font-bold text-left w-full text-lg">
                             Event Date:{" "}
                             <span className="font-normal">
@@ -217,7 +218,7 @@ const EventDetail = () => {
                     <div className="w-full md:w-[760px] mx-auto h-[32rem] md:mt-[5rem]">
                         <Carousel slideInterval={5000}>
                             {event.event_images.map((each) => (
-                                <img src={each} alt="..." />
+                                <img key={each} src={each} alt="..." />
                             ))}
                         </Carousel>
                     </div>
@@ -279,7 +280,10 @@ const EventDetail = () => {
                         {event &&
                             event.contact &&
                             event.contact.map((each) => (
-                                <div className="flex flex-col min-h-[7rem] w-full bg-gradient-to-t from-[#1D3056] to-transparent rounded-md py-5">
+                                <div
+                                    key={each.phone + each.name}
+                                    className="flex flex-col min-h-[7rem] w-full bg-gradient-to-t from-[#1D3056] to-transparent rounded-md py-5"
+                                >
                                     <div className="flex flex-col flex-1">
                                         <h3 className="capitalize font-poppins text-xl font-bold tracking-wide text-center">
                                             {each.name}
