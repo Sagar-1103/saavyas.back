@@ -157,7 +157,10 @@ const EventDetail = () => {
                                 event && event.title
                             )}
                         </h1>
-                        <p innerText="123">{event && event.desc}</p>
+                        {event &&
+                            event.desc
+                                .split("<br/>")
+                                .map((each_para) => <p innerText="123">{each_para}</p>)}
                         <p className="font-poppins font-bold text-left w-full text-lg">
                             Event Date:{" "}
                             <span className="font-normal">
