@@ -6,6 +6,10 @@ const Home = () => {
     let analytics = pg.analytics;
     return (
         <Wrapper>
+            <div className="flex justify-center text-left text-5xl md:text-6xl gap-[1.75rem] p-[20px] h-80 pb-40 font-lostfish pt-[300px] md:pt-[400px] text-left md:w-full">
+                Sea Shore Soiree
+            </div>
+
             <div className="z-10 p-3 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
                 <div className="font-semibold justify-center items-center text-4xl font-lostfish ">
                     About Us
