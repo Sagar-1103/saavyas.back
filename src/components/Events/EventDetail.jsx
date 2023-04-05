@@ -6,7 +6,7 @@ import Error404 from "../Errors/Error404";
 
 let validCategories = ["technical", "cultural", "workshop"];
 
-const useWindowWidth = () => {
+export const useWindowWidth = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
     const handleResize = () => setWidth(window.innerWidth);
     React.useEffect(() => {
@@ -16,7 +16,7 @@ const useWindowWidth = () => {
     return width;
 };
 
-function useHover() {
+export function useHover() {
     const [value, setValue] = React.useState(false);
 
     const ref = React.useRef(null);
@@ -45,30 +45,31 @@ function useHover() {
 
 const EventDetail = () => {
     const { category, eventId } = useParams();
-    const navigate = useNavigate();
-    const width = useWindowWidth();
     const [event, setEvent] = React.useState(null);
-    const [notfound, setnotfound] = React.useState();
     const [registerBtnRef, registerBtnIsHovered] = useHover();
+    const windowWidth = useWindowWidth();
+
+    const [showErrorPage, setShowErrorPage] = React.useState(false);
 
     useEffect(() => {
         if (!validCategories.includes(category)) {
-            navigate("/404");
+            setShowErrorPage(true);
+            return;
         }
 
         (async () => {
             const events = await getAllEvents();
 
             if (!events[category][eventId]) {
-                setnotfound(true);
+                setShowErrorPage(true);
+                return;
             }
 
             setEvent(events[category][eventId]);
         })();
     }, []);
 
-    if (notfound) return <Error404 />;
-    return (
+    return !showErrorPage ? (
         <div className={`w-full h-full flex-1`}>
             <img
                 // srcset=" '/images/bg-mobile.png' 480w, '/images/bg.png' 800w"
@@ -78,24 +79,44 @@ const EventDetail = () => {
                 className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-1]"
             />
 
-            <div className="w-[90%] mx-auto xl:w-cap mt-[5rem] md:mt-[8rem] text-white">
+            <div className="w-[90%] mx-auto xl:w-cap mt-[6rem] md:mt-[8rem] text-white">
                 {/* hero  */}
                 <div className="h-[32rem] w-full bg-[#D9D9D9] bg-opacity-[0.2] rounded-md flex flex-col items-center justify-end">
                     <div className=" w-full flex flex-col md:flex-row md:justify-center md:items-end">
-                        <div className="font-poppins w-full md:flex-1  min-h-[12rem] md:flex md:flex-col md:justify-center md:gap-3 md:min-h-fit md:m-10 ">
-                            <h1 className="font-stuart-little strong text-4xl text-center md:text-left w-full">
-                                {event && event.title}
+                        <div className="  font-poppins w-full md:flex-1  min-h-[12rem] md:flex md:flex-col md:justify-center md:gap-3 md:min-h-fit md:m-10 ">
+                            <h1 className="  font-stuart-little strong text-3xl md:text-4xl text-center md:text-left w-full">
+                                {event == null ? (
+                                    "Loading..."
+                                ) : event.title.includes("(") ? (
+                                    <>
+                                        {event.title.split("(")[0]}
+                                        <br />({event.title.split("(")[1]}
+                                    </>
+                                ) : (
+                                    event.title
+                                )}
                             </h1>
-                            <p className="text-center md:text-left text-xl ">
-                                PRIZE WORTH: {event && "₹ " + String(event.prize_money)}
-                            </p>
-                            <p className="text-center md:text-left text-xl ">
-                                ENTRY FEE: {event && "₹ " + String(event.entry_fee)}
-                            </p>
+                            <div className="flex justify-center mt-2">
+                                <p className="text-center md:text-left text-xl inline-block w-fit ">
+                                    PRIZE WORTH: &#8377;
+                                </p>{" "}
+                                <p className="text-center md:text-left text-xl inline-block w-fit ">
+                                    {event && String(event.prize_money)}
+                                </p>
+                            </div>
+                            <div className="flex justify-center">
+                                <p className="text-center md:text-left text-xl inline-block w-fit ">
+                                    ENTRY FEE: &#8377;
+                                </p>{" "}
+                                <p className="text-center md:text-left text-xl inline-block w-fit ">
+                                    {event && String(event.entry_fee)}
+                                </p>
+                            </div>
                         </div>
 
                         <Link
-                            to={`/events/${category}/${eventId}`}
+                            // to={`/events/${category}/${eventId}`}
+                            to={`/events/register?eventId=${eventId}&category=${category}`}
                             ref={registerBtnRef}
                             // linear gradient bg 241.26deg, rgba(169, 204, 236, 0.2) 29.13%, rgba(90, 125, 154, 0.13) 61.59%),
                             className=" cursor-default w-[80%] my-6  md:w-[17rem]  mx-auto py-1 flex font-lostfish text-xl justify-center items-center bg-[#A9CCEC] bg-opacity-[0.2] backdrop-blur-sm shadow-md rounded-md mt-5 md:m-10"
@@ -120,8 +141,21 @@ const EventDetail = () => {
                         About Event
                     </h3>
                     <div className="py-6 flex flex-col gap-3">
-                        <h1 className="font-poppins capitalize text-3xl font-bold text-left w-full">
-                            {event && event.title}
+                        <h1 className="font-poppins capitalize text-3xl  font-bold text-left w-full">
+                            {windowWidth < 768 ? (
+                                event == null ? (
+                                    "Loading..."
+                                ) : event.title.includes("(") ? (
+                                    <>
+                                        {event.title.split("(")[0]}
+                                        <br />({event.title.split("(")[1]}
+                                    </>
+                                ) : (
+                                    event.title
+                                )
+                            ) : (
+                                event && event.title
+                            )}
                         </h1>
                         <p innerText="123">{event && event.desc}</p>
                         <p className="font-poppins font-bold text-left w-full text-lg">
@@ -261,6 +295,8 @@ const EventDetail = () => {
                 </div>
             </div>
         </div>
+    ) : (
+        <Error404 />
     );
 };
 
