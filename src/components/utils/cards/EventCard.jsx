@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function EventCard({ event, eventType }) {
     const navigate = useNavigate();
-    let date = new Date(event.start_time);
 
     return (
         <div
@@ -53,7 +52,11 @@ function EventCard({ event, eventType }) {
                 </span>
                 <span className="text-left text-md flex gap-2 items-center">
                     <BsFillCalendar2WeekFill />{" "}
-                    {date.toDateString() + ", " + date.getHours() + ":" + date.getMinutes()}
+                    {new Date(event.start_time).toLocaleDateString("en-IN", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}
                 </span>
                 <span className="text-left text-md flex gap-2 items-center">
                     <HiOutlineLocationMarker />
