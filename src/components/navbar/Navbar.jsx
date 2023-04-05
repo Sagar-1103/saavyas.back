@@ -42,7 +42,7 @@ const Navbar = () => {
     }, [justSignedIn, user]);
 
     return (
-        <div className="w-screen h-auto flex justify-center items-center relative z-50">
+        <div className="w-screen h-auto flex justify-center items-center relative z-[1000]">
             <div
                 style={{
                     background:

@@ -22,21 +22,21 @@ function Wrapper({ children, text = "Sea Shore Soiree" }) {
                         style={{
                             backgroundImage: 'url("./layers/3.png")',
                         }}
-                        className="sub-layers"
+                        className="sub-layers z-[1]"
                         data-depth="0.3"
                     ></div>
                     <div
-                        className="sub-layers"
+                        className="sub-layers z-[2]"
                         style={{
                             backgroundImage: 'url("./layers/5.png")',
                         }}
                         data-depth="0.45"
                     ></div>
-                    <div data-depth="0.7" className="sub-layers">
+                    <div data-depth="0.7" className="sub-layers z-[3]">
                         <h1>{text}</h1>
                     </div>
                     <div
-                        className="sub-layers"
+                        className="sub-layers z-[4]"
                         style={{
                             backgroundImage: 'url("./layers/2.png")',
                         }}
@@ -47,14 +47,14 @@ function Wrapper({ children, text = "Sea Shore Soiree" }) {
                             opacity: 0.7,
                             backgroundImage: 'url("./layers/4.png")',
                         }}
-                        className="sub-layers"
+                        className="sub-layers z-[5]"
                         data-depth="0.4"
                     ></div>
-                    <div data-depth="0.7" className="sub-layers">
+                    <div data-depth="0.7" className="sub-layers z-[6]">
                         <h1>{text}</h1>
                     </div>
                     <div
-                        className="sub-layers"
+                        className="sub-layers z-[7]"
                         style={{ backgroundImage: 'url("./layers/1.png")' }}
                         data-depth="0.1"
                     ></div>
