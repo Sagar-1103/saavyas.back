@@ -89,13 +89,7 @@ const Navbar = () => {
                 }}
                 className="font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
             >
-                <img
-                    style={{
-                        width: "30px",
-                    }}
-                    src="/saavyas-logo.png"
-                />
-
+                <h1 className="">Saavyas</h1>
                 {menuOpen ? (
                     <div className="CROSS-ICON" onClick={() => setMenuOpen(false)}>
                         <svg
@@ -121,7 +115,6 @@ const Navbar = () => {
                         <span className="block h-[3px] w-6 bg-white rounded-full" />
                     </div>
                 )}
-
                 <div
                     className={`absolute ${
                         menuOpen ? "flex" : "hidden"
