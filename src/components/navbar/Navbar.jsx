@@ -87,11 +87,14 @@ const Navbar = () => {
                     backdropFilter: "blur(3.5px)",
                     // borderRadius: "18px",
                 }}
-                className="font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
+                className=" select-none font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
             >
-                <h1 className="">Saavyas</h1>
+                <h1 className="pt-1">Saavyas</h1>
                 {menuOpen ? (
-                    <div className="CROSS-ICON" onClick={() => setMenuOpen(false)}>
+                    <div
+                        className="transition-all CROSS-ICON h-[20px] flex justify-center items-center"
+                        onClick={() => setMenuOpen(false)}
+                    >
                         <svg
                             className="h-8 w-8 text-white"
                             viewBox="0 0 24 24"
@@ -107,18 +110,18 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div
-                        className="HAMBURGER-ICON space-y-1.5"
+                        className="HAMBURGER-ICON space-y-1.5 h-[20px]  flex flex-col justify-end"
                         onClick={() => setMenuOpen((prev) => !prev)}
                     >
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
+                        <span className="block h-[3px] w-4 bg-white rounded-full" />
+                        <span className="block h-[3px] w-5 bg-white rounded-full" />
                         <span className="block h-[3px] w-6 bg-white rounded-full" />
                     </div>
                 )}
                 <div
                     className={`absolute ${
                         menuOpen ? "flex" : "hidden"
-                    } bg-white text-black flex flex-col p-4 gap-2 top-[70px] w-screen left-0`}
+                    } bg-white text-black flex flex-col p-4 gap-2 top-[53px] w-screen left-0`}
                     onClick={() => setMenuOpen((prev) => !prev)}
                 >
                     <Link to="/">Home</Link>
