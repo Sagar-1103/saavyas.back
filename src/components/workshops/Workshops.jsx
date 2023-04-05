@@ -17,7 +17,7 @@ const Workshops = () => {
     }, []);
 
     return (
-        <Wrapper>
+        <Wrapper text="Workshops">
             <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish"></div>
             <div className="p-3 w-full flex justify-center items-center flex-col gap-8">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
