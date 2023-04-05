@@ -11,15 +11,19 @@ function Wrapper({ children, text = "Sea Shore Soiree" }) {
                 alt=""
             /> */}
             <div
-                style={{ minWidth: "100%", minHeight: "100%" }}
-                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-10] overflow-hidden"
+                style={{ minWidth: "100%", minHeight: "90vh" }}
+                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-10] flex justify-center overflow-hidden"
             >
                 <lottie-player
                     src="/animation.json"
                     background="transparent"
                     speed="0.5"
                     loop
-                    style={{ minWidth: "110%", minHeight: "100%" }}
+                    style={{
+                        flexShrink: "0",
+                        minWidth: "1000px",
+                        minHeight: "100%",
+                    }}
                     autoplay
                 ></lottie-player>
             </div>
