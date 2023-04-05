@@ -37,7 +37,7 @@ const Events = () => {
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Cultural Events
                 </div>
-                <div className="flex w-full max-w-[1280px] md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll items-stretch">
+                <div className="flex w-full max-w-[1280px] md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max  flex-col gap-2 max-h-[500px] overflow-y-scroll items-stretch">
                     {events &&
                         Object.keys(events.cultural).map((key) => (
                             <EventCard eventType="cultural" event={events.cultural[key]} />
