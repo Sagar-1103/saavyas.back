@@ -90,34 +90,31 @@ const Navbar = () => {
                 className=" select-none font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
             >
                 <h1 className="pt-1">Saavyas</h1>
-                {menuOpen ? (
+                {
                     <div
-                        className="transition-all CROSS-ICON h-[20px] flex justify-center items-center"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        <svg
-                            className="h-8 w-8 text-white"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                    </div>
-                ) : (
-                    <div
-                        className="HAMBURGER-ICON space-y-1.5 h-[20px]  flex flex-col justify-end"
+                        className="HAMBURGER-ICON space-y-1.5 h-[20px] relative flex flex-col justify-end"
                         onClick={() => setMenuOpen((prev) => !prev)}
                     >
-                        <span className="block h-[3px] w-4 bg-white rounded-full" />
-                        <span className="block h-[3px] w-5 bg-white rounded-full" />
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
+                        <span
+                            className={
+                                "transition-all block h-[3px] w-4 bg-white rounded-full" +
+                                (menuOpen ? " w-6 translate-y-[8px] rotate-45" : "")
+                            }
+                        />
+                        <span
+                            className={
+                                "transition-all block h-[3px] w-5 bg-white rounded-full " +
+                                (menuOpen ? "w-[0px]" : "")
+                            }
+                        />
+                        <span
+                            className={
+                                "transition-all block h-[3px] w-6 bg-white rounded-full " +
+                                (menuOpen ? " translate-y-[-8.9px] rotate-[-45deg]" : "")
+                            }
+                        />
                     </div>
-                )}
+                }
                 <div
                     className={`absolute ${
                         menuOpen ? "flex" : "hidden"
