@@ -15,7 +15,7 @@ function Contact() {
 
     const [selectedTeamName, setSelectedTeamName] = useState("Core Team");
     return (
-        <Wrapper>
+        <Wrapper text="Contact">
             <div className="w-full flex justify-center text-center gap-[1.75rem] pt-40 h-80 pb-40 font-lostfish max-w-[1800px]">
                 <ClearCard
                     className="cursor-pointer select-none"

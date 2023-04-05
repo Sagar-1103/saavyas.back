@@ -18,7 +18,7 @@ const Notification = () => {
     return (
         <div
             style={{ display: isNew ? "flex" : "none", backgroundColor: "#FFF3CD" }}
-            className="w-full flex justify-center items-center z-[1000] fixed"
+            className="w-full flex justify-center items-center z-[2000] fixed"
         >
             <div className="w-full flex justify-between text-black px-5 py-1 max-w-7xl">
                 <div style={{ flex: 9 }} className="notification">

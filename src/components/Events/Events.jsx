@@ -17,7 +17,7 @@ const Events = () => {
     }, []);
 
     return (
-        <Wrapper>
+        <Wrapper text="events">
             <div className="w-full flex justify-center text-center gap-[1.75rem] md:pt-[20rem] pt-[15rem] h-80 pb-40 font-lostfish">
                 <p className="text-6xl">Events</p>
             </div>
