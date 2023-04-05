@@ -12,7 +12,7 @@ function EventCard({ event, eventType }) {
     return (
         <div
             onClick={() => navigate("/events/" + eventType + "/" + event.eid)}
-            className="flex cursor-pointer md:flex-col rounded-lg justify-between md:items-start md:px-2 h-full items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3"
+            className="flex cursor-pointer md:flex-col rounded-lg justify-between md:items-start md:px-2 h-full items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3 md:mb-[10px]"
         >
             <div className="text-sm absolute top-0 right-[0.2rem] bg-[#17294d] rounded-md p-1 hidden md:block">
                 {eventType == "technical" ? "Technical" : "Cultural"}
