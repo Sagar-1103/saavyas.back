@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import "./Wrapper.css";
 
-function Wrapper({ children }) {
+function Wrapper({ children, text = "Sea Shore Soiree" }) {
+    let [mytext, setmytext] = useState("");
+    useEffect(() => {
+        setmytext(text);
+    }, [text]);
     return (
-        <section className="bg-contain bg-top bg-no-repeat w-full mx-auto bg-[#0F1B33] z-[0] text-white gap-[6rem] md:gap-[10rem] flex flex-col justify-center items-center">
-            <img
+        <section className="relative bg-contain bg-top bg-no-repeat w-full mx-auto z-[0] text-white gap-[6rem] md:gap-[10rem] flex flex-col justify-center items-center">
+            {/* <img
                 src="./images/bg.png"
-                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-1]"
+                style={{ zIndex: "-100000" }}
+                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-10]"
                 alt=""
-            />
+            /> */}
+            <div
+                style={{ minWidth: "100%", minHeight: "90vh" }}
+                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-10] flex justify-center overflow-hidden"
+            >
+                <lottie-player
+                    src="/animation.json"
+                    background="transparent"
+                    speed="0.5"
+                    loop
+                    style={{
+                        flexShrink: "0",
+                        minWidth: "1000px",
+                        minHeight: "100%",
+                    }}
+                    autoplay
+                ></lottie-player>
+
+                <div className=" z-[1] absolute flex h-[80vh] justify-center items-center text-left text-4xl md:text-6xl p-[20px] h-80 font-lostfish pt-[200px] md:pt-[400px] text-left md:w-full">
+                    {mytext}
+                </div>
+            </div>
             {children}
         </section>
     );

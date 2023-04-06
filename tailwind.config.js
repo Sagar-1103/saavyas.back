@@ -14,6 +14,9 @@ module.exports = {
             width: {
                 cap: "1280px",
             },
+            screens: {
+                "hover-none": { raw: "(hover: none)" },
+            },
         },
     },
     plugins: [require("flowbite/plugin")],

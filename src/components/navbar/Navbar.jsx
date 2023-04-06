@@ -42,7 +42,7 @@ const Navbar = () => {
     }, [justSignedIn, user]);
 
     return (
-        <div className="w-screen h-auto flex justify-center items-center relative z-50">
+        <div className="w-screen h-auto flex justify-center items-center relative z-[1000]">
             <div
                 style={{
                     background:
@@ -66,8 +66,8 @@ const Navbar = () => {
                 <Link to="/events">Events</Link>
 
                 <Link to="/workshops">Workshop</Link>
-                {/* 
-                {!user ? (
+
+                {/* {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
                         Register
                     </button>
@@ -87,45 +87,38 @@ const Navbar = () => {
                     backdropFilter: "blur(3.5px)",
                     // borderRadius: "18px",
                 }}
-                className="font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
+                className=" select-none font-lostfish md:hidden flex justify-between items-center text-white fixed py-3 px-6 top-0 text-xl w-full"
             >
-                <img
-                    style={{
-                        width: "30px",
-                    }}
-                    src="/saavyas-logo.png"
-                />
-
-                {menuOpen ? (
-                    <div className="CROSS-ICON" onClick={() => setMenuOpen(false)}>
-                        <svg
-                            className="h-8 w-8 text-white"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
-                        </svg>
-                    </div>
-                ) : (
+                <h1 className="pt-1">Saavyas</h1>
+                {
                     <div
-                        className="HAMBURGER-ICON space-y-1.5"
+                        className="HAMBURGER-ICON space-y-1.5 h-[20px] relative flex flex-col justify-end"
                         onClick={() => setMenuOpen((prev) => !prev)}
                     >
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
-                        <span className="block h-[3px] w-6 bg-white rounded-full" />
+                        <span
+                            className={
+                                "transition-all block h-[3px] w-4 bg-white rounded-full" +
+                                (menuOpen ? " w-6 translate-y-[8px] rotate-45" : "")
+                            }
+                        />
+                        <span
+                            className={
+                                "transition-all block h-[3px] w-5 bg-white rounded-full " +
+                                (menuOpen ? "w-[0px]" : "")
+                            }
+                        />
+                        <span
+                            className={
+                                "transition-all block h-[3px] w-6 bg-white rounded-full " +
+                                (menuOpen ? " translate-y-[-8.9px] rotate-[-45deg]" : "")
+                            }
+                        />
                     </div>
-                )}
-
+                }
                 <div
                     className={`absolute ${
                         menuOpen ? "flex" : "hidden"
-                    } bg-white text-black flex flex-col p-4 gap-2 top-[70px] w-screen left-0`}
+                    } bg-white text-black flex flex-col p-4 gap-2 top-[53px] w-screen left-0`}
                     onClick={() => setMenuOpen((prev) => !prev)}
                 >
                     <Link to="/">Home</Link>

@@ -2,11 +2,11 @@ import React from "react";
 import { GiIronHulledWarship } from "react-icons/gi";
 import "./Loading.css";
 
-const Loading = ({ showText = false }) => {
+const Loading = ({ text = "Loading..." }) => {
     return (
-        <div>
+        <div className="text-center items-center flex flex-col">
             <GiIronHulledWarship className="loading-animation text-9xl mb-[1rem]" />
-            {showText ? "Loading..." : ""}
+            {text}
         </div>
     );
 };

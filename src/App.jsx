@@ -12,8 +12,11 @@ import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 import Notification from "./components/Notification/Notification";
 import EventDetail from "./components/Events/EventDetail";
+import Wrapper from "./components/utils/Wrapper";
+import { useState } from "react";
 
 function App() {
+    let [text, settext] = useState("Sea Shore Soiree");
     return (
         <BrowserRouter>
             <div className="App font-poppins flex flex-col min-h-screen">
@@ -21,15 +24,19 @@ function App() {
                     <AuthContextProvider>
                         <Notification />
                         <Navbar />
+                        <Wrapper text={text} />
                         <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route path="register" element={<Register />} />
-                            <Route path="workshops" element={<Workshops />} />
-                            <Route path="contact" element={<Contact />} />
-                            <Route path="*" element={<Error404 />} />
-                            <Route path="events" element={<Events />} />
-                            <Route path="events/register" element={<EventRegister />} />
-                            <Route path="events/:category/:eventId" element={<EventDetail />} />
+                            <Route path="/" element={<Home settext={settext} />} />
+                            {/* <Route path="register" element={<Register />} /> */}
+                            <Route path="workshops" element={<Workshops settext={settext} />} />
+                            <Route path="contact" element={<Contact settext={settext} />} />
+                            <Route path="*" element={<Error404 settext={settext} />} />
+                            <Route path="events" element={<Events settext={settext} />} />
+                            {/* <Route path="events/register" element={<EventRegister />} /> */}
+                            <Route
+                                path="events/:category/:eventId"
+                                element={<EventDetail settext={settext} />}
+                            />
                             <Route path="about" element={<About />} />
                         </Routes>
                     </AuthContextProvider>
