@@ -7,7 +7,7 @@ const Home = ({ settext }) => {
     }, []);
     return (
         <>
-            <div className="mt-[90vh] z-10 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
+            <div className="mt-[max(90vh,600px)] z-10 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
                 <div className="font-semibold justify-center items-center text-4xl font-lostfish ">
                     About Us
                 </div>

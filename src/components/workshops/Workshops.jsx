@@ -18,7 +18,7 @@ const Workshops = ({ settext }) => {
 
     return (
         <>
-            <div className="mt-[90vh] p-3 w-full flex justify-center items-center flex-col gap-8">
+            <div className=" mt-[max(50vh,600px)] p-3 w-full flex justify-center items-center flex-col gap-8">
                 {workshops ? (
                     <div className="flex w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll">
                         {workshops &&

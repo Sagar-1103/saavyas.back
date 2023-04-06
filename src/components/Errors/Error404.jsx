@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Error404 = () => {
+const Error404 = ({ settext }) => {
+    useEffect(() => {
+        settext("");
+    }, []);
     return (
         <div className="w-full flex justify-center items-center select-none">
             <div
                 style={{ minWidth: "300px" }}
                 className="w-1/3 py-48 flex items-center justify-center flex-col"
             >
-                <img className="w-full " src="/images/error404bg.png" alt="" />
+                <img className="w-full z-[10]" src="/images/error404bg.png" alt="" />
 
                 <Link
                     to={`/`}

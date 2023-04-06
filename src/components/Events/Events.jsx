@@ -16,12 +16,12 @@ const Events = ({ settext }) => {
     }, []);
 
     return (
-        <section className="mt-[90vh] bg-[#0F1B33] z-[10]">
-            <div className=" p-3 w-full flex justify-center items-center flex-col gap-8 z-[10]">
+        <section className="mt-[max(90vh,600px)] w-full bg-[#0F1B33] z-[10]">
+            <div className=" w-full flex justify-center items-center flex-col gap-8 z-[10]">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Technical Events
                 </div>
-                <div className="flex max-w-[1280px] w-full md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll  items-stretch">
+                <div className=" flex max-w-[1280px] w-full  md:w-[73%] md:flex-row md:overflow-y-hidden md:overflow-x-auto md:max-h-max items-center flex-col gap-2 max-h-[500px] overflow-y-scroll  items-stretch">
                     {events &&
                         Object.keys(events.technical).map((key) => (
                             <EventCard
@@ -32,7 +32,7 @@ const Events = ({ settext }) => {
                         ))}
                 </div>
             </div>
-
+            {/* 
             <div className="p-3 w-full  flex justify-center items-center flex-col gap-8">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Cultural Events
@@ -47,7 +47,7 @@ const Events = ({ settext }) => {
                             />
                         ))}
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 };
