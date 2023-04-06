@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import { getAllEvents } from "../firebase/realtimeDb";
+import { redirect, useSearchParams } from "react-router-dom";
+import { getAllEvents, handleRegistration } from "../firebase/realtimeDb";
 
 import { AiOutlinePlus } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import Error404 from "../Errors/Error404";
+import { UserAuth } from "../context/AuthContext";
 
 const Contain = ({ children }) => {
     return (
@@ -38,6 +39,9 @@ const EventRegister = () => {
     const [teamName, setTeamName] = React.useState("");
     const [teamMembers, setTeamMembers] = React.useState([]);
     const [teamMemberName, setTeamMemberName] = React.useState("");
+
+    // user session instance from context
+    const user = UserAuth();
 
     const handleAddTeamMember = (e) => {
         let max_participation = 4;
@@ -82,15 +86,33 @@ const EventRegister = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // validation
         if (teamName === "") return;
         if (teamMembers.length === 0) return;
+        console.log({
+            user,
+        });
 
-        console.log("teamName: ", teamName);
-        console.log("teamMembers: ", teamMembers);
+        console.log({
+            teamName,
+            teamMembers,
+            uuid: user.user.uid,
+            eventId: searchParams.get("eventId"),
+            category: searchParams.get("category"),
+        });
+
+        const res = await handleRegistration({
+            teamName,
+            teamMembers,
+            uuid: user.user.uid,
+            eventId: searchParams.get("eventId"),
+            category: searchParams.get("category"),
+        });
+
+        console.log(res);
     };
 
     // TODO user not authenticated will not be shown this page
@@ -98,6 +120,12 @@ const EventRegister = () => {
     useEffect(() => {
         const eventId = searchParams.get("eventId");
         const category = searchParams.get("category");
+
+        // if (!user) {
+        //     redirect("/");
+        //     return;
+        // }
+        // console.log("user: ", user);
 
         if (!eventId) {
             setShowErrorPage(true);
