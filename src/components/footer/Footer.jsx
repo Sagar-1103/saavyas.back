@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HiOutlineLocationMarker } from "react-icons/all";
+import { FiMail, HiOutlineLocationMarker } from "react-icons/all";
 
 const useWindowWidth = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -68,8 +68,8 @@ const Footer = () => {
                             {/* image section  */}
                             <img
                                 className="w-20 h-20 lg:w-40 lg:h-40 object-contain select-none"
-                                src="/saavyas-logo.png"
-                                alt="saavyas-logo"
+                                src="/saavyas-logo2.png"
+                                alt="saavyas-logo2"
                             />
                             {/* college name  */}
                             <h1 className=" md:text-xl lg:px-10 lg:w-3/5  text-base font-bold">
@@ -100,19 +100,20 @@ const Footer = () => {
                                 <h3 className="font-lostfish font-bold w-full text-base text-right ">
                                     Contact Us
                                 </h3>
-                                <a
-                                    href="https://www.nitgoa.ac.in/"
-                                    className="w-full text-right flex items-center flex-row-reverse lg:text-right bg-red hover:text-[#F9A826]"
-                                >
-                                    &nbsp; Farmagudi, Ponda
-                                    <HiOutlineLocationMarker />
-                                </a>
-                                <a
-                                    href="mailto:contact@saavyas.org"
-                                    className="text-right  w-full hover:text-[#F9A826]"
-                                >
-                                    contact@saavyas.org
-                                </a>
+                                <span className="flex justify-between flex-col justify-end w-full">
+                                    <a
+                                        href="https://goo.gl/maps/kt8Uqw6KGKhFYMv59"
+                                        className="text-right flex flex-row-reverse items-center hover:text-[#F9A826]"
+                                    >
+                                        <HiOutlineLocationMarker /> Farmagudi &nbsp;
+                                    </a>
+                                    <a
+                                        href="mailto:contact@saavyas.org"
+                                        className="text-right flex flex-row-reverse items-center hover:text-[#F9A826]"
+                                    >
+                                        <FiMail /> Mail Us &nbsp;
+                                    </a>
+                                </span>
                             </div>
                         ) : (
                             <ul className="w-1/2 flex flex-col justify-start items-center md:items-start">

@@ -31,7 +31,7 @@ function Wrapper({ children, text = "Sea Shore Soiree" }) {
                     autoplay
                 ></lottie-player>
 
-                <div className=" z-[1] absolute flex h-[80vh] justify-center items-center text-left text-5xl md:text-6xl p-[20px] h-80 font-lostfish pt-[200px] md:pt-[400px] text-left md:w-full">
+                <div className=" z-[1] absolute flex h-[80vh] justify-center items-center text-left text-4xl md:text-6xl p-[20px] h-80 font-lostfish pt-[200px] md:pt-[400px] text-left md:w-full">
                     {mytext}
                 </div>
             </div>

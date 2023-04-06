@@ -28,9 +28,8 @@ const Workshops = ({ settext }) => {
                     </div>
                 ) : (
                     <>
-                        <h1 className="p-[10rem] z-[1] md:text-3xl text-xl flex items-center flex-col">
-                            <Loading />
-                            On the Way!
+                        <h1 className="p-[10rem] z-[1] md:text-3xl text-xl flex items-center flex-col w-full">
+                            <Loading text={"On the Way!"} />
                         </h1>
                     </>
                 )}
