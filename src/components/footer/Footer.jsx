@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiMail, HiOutlineLocationMarker } from "react-icons/all";
+import {
+    BsInstagram,
+    BsLinkedin,
+    BsYoutube,
+    BsFacebook,
+    FiMail,
+    HiOutlineLocationMarker,
+} from "react-icons/all";
 
 const useWindowWidth = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -17,25 +24,25 @@ const footerSocialLinks = [
         id: "saavyas-facebook",
         name: "Facebook",
         link: "https://www.facebook.com/saavyas.nitg/",
-        svg: "/images/svg/facebook.svg",
+        svg: <BsFacebook className="w-full" />,
     },
     {
         id: "saavyas-youtube",
         name: "Youtube",
         link: "https://www.youtube.com/channel/UC4Ahxhye0-Nb20dooZ7Q_3A",
-        svg: "/images/svg/youtube.svg",
+        svg: <BsYoutube className="w-full" />,
     },
     {
         id: "saavyas-linkedin",
         name: "Linkedin",
         link: "https://www.linkedin.com/company/saavyas-nitgoa/about/",
-        svg: "/images/svg/linkedin.svg",
+        svg: <BsLinkedin className="w-full" />,
     },
     {
         id: "saavyas-instagram",
         name: "Instagram",
         link: "https://www.instagram.com/saavyas.nitg/",
-        svg: "/images/svg/instagram.svg",
+        svg: <BsInstagram className="w-full" />,
     },
 ];
 
@@ -135,13 +142,14 @@ const Footer = () => {
                 {width < 768 && (
                     <div className="w-full my-5 flex justify-between sm:justify-evenly items-center">
                         {footerSocialLinks.map((link) => (
-                            <a key={link.id} target="_blank" href={link.link} rel="noreferrer">
-                                <img
-                                    key={link.id}
-                                    className="w-14 sm:w-20 h-14 sm:h-20 object-contain "
-                                    src={link.svg}
-                                    alt={link.name}
-                                />
+                            <a
+                                key={link.id}
+                                className="text-5xl flex justify-center items-center"
+                                target="_blank"
+                                href={link.link}
+                                rel="noreferrer"
+                            >
+                                {link.svg}
                             </a>
                         ))}
                     </div>

@@ -32,7 +32,7 @@ const Events = ({ settext }) => {
                         ))}
                 </div>
             </div>
-            {/* 
+
             <div className="p-3 w-full  flex justify-center items-center flex-col gap-8">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Cultural Events
@@ -47,7 +47,7 @@ const Events = ({ settext }) => {
                             />
                         ))}
                 </div>
-            </div> */}
+            </div>
         </section>
     );
 };
