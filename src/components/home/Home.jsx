@@ -1,15 +1,13 @@
-import React from "react";
-import Wrapper from "../utils/Wrapper";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ settext }) => {
+    useEffect(() => {
+        settext("Sea Shore Soiree");
+    }, []);
     return (
-        <Wrapper>
-            <div className="flex h-[80vh] justify-center items-center text-left text-5xl md:text-6xl p-[20px] h-80 font-lostfish pt-[200px] md:pt-[400px] text-left md:w-full">
-                Sea Shore Soiree
-            </div>
-
-            <div className="z-10 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
+        <>
+            <div className="mt-[90vh] z-10 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
                 <div className="font-semibold justify-center items-center text-4xl font-lostfish ">
                     About Us
                 </div>
@@ -88,7 +86,7 @@ const Home = () => {
                     </div>
                 </div>
             )}
-        </Wrapper>
+        </>
     );
 };
 

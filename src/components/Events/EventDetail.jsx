@@ -1,6 +1,6 @@
 import { Carousel } from "flowbite-react";
-import React, { useEffect, useMemo } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { getAllEvents } from "../firebase/realtimeDb";
 import Error404 from "../Errors/Error404";
 
@@ -43,7 +43,7 @@ export function useHover() {
     return [ref, value];
 }
 
-const EventDetail = () => {
+const EventDetail = ({ settext }) => {
     const { category, eventId } = useParams();
     const [event, setEvent] = React.useState(null);
     const [registerBtnRef, registerBtnIsHovered] = useHover();
@@ -52,6 +52,7 @@ const EventDetail = () => {
     const [showErrorPage, setShowErrorPage] = React.useState(false);
 
     useEffect(() => {
+        settext("");
         if (!validCategories.includes(category)) {
             setShowErrorPage(true);
             return;
@@ -70,15 +71,7 @@ const EventDetail = () => {
     }, []);
 
     return !showErrorPage ? (
-        <div className={`w-full h-full flex-1`}>
-            <img
-                // srcset=" '/images/bg-mobile.png' 480w, '/images/bg.png' 800w"
-                // sizes="(max-width: 600px) 480px, 800px"
-                src="/images/bg.png"
-                alt="Elva dressed as a fairy"
-                className="absolute top-0 left-0 w-full min-h-1/2 object-cover z-[-1]"
-            />
-
+        <div className={`w-full h-full flex-1 z-[2]`}>
             <div className="w-[90%] mx-auto xl:w-cap mt-[6rem] md:mt-[8rem] text-white">
                 {/* hero  */}
                 <div className="h-[32rem] w-full bg-[#D9D9D9] bg-opacity-[0.2] rounded-md flex flex-col items-center justify-end">
@@ -97,20 +90,17 @@ const EventDetail = () => {
                                 )}
                             </h1>
                             <div className="flex justify-center mt-2">
-                                <p className="text-center md:text-left text-xl inline-block w-fit ">
+                                <p className="text-center md:text-left text-xl inline-block w-full">
                                     PRIZE WORTH: &#8377;
-                                </p>{" "}
-                                <p className="text-center md:text-left text-xl inline-block w-fit ">
                                     {event && String(event.prize_money)}
-                                </p>
+                                </p>{" "}
                             </div>
                             <div className="flex justify-center">
-                                <p className="text-center md:text-left text-xl inline-block w-fit ">
+                                <p className="text-center md:text-left text-xl inline-block w-full">
                                     ENTRY FEE: &#8377;
-                                </p>{" "}
-                                <p className="text-center md:text-left text-xl inline-block w-fit ">
                                     {event && String(event.entry_fee)}
-                                </p>
+                                </p>{" "}
+                                <p className="text-center md:text-left text-xl inline-block w-fit "></p>
                             </div>
                         </div>
 

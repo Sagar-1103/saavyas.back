@@ -6,7 +6,7 @@ function AboutCard(props) {
             style={{
                 background: "linear-gradient(180deg, rgba(29, 48, 86, 0) 23.23%, #1D3056 100%)",
             }}
-            className="flex md:flex-col rounded-lg md:justify-start md:items-start md:px-2 justify-center items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3"
+            className="flex md:flex-col rounded-lg md:justify-start md:items-start md:px-2 justify-center items-center gap-3 bg-[#17294d] w-[97%] min-h-[150px] relative p-1 min-h-3 md:mb-[10px]"
         >
             <div
                 style={{ backgroundImage: "url(" + props.user.image + ")" }}
