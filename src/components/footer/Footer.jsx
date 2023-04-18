@@ -120,6 +120,13 @@ const Footer = () => {
                                     >
                                         <FiMail /> Mail Us &nbsp;
                                     </a>
+                                    <Link
+                                        to="/codingclubnitg"
+                                        className="text-right flex flex-row-reverse items-center hover:text-[#F9A826]"
+                                    >
+                                        <span className="heart text-[red]">&nbsp; ❤ </span>
+                                        Made with
+                                    </Link>
                                 </span>
                             </div>
                         ) : (
