@@ -27,7 +27,7 @@ let people = [
         name: "Abhishek Verma",
         img: "/dev-team/abhishek.jpeg",
         about: "Android App Developer",
-        lin: "linkedin.com/in/abhishekverma878787/",
+        lin: "https://www.linkedin.com/in/abhishekverma878787/",
         email: "abhishekverma878787@gmail.com",
     },
     {
