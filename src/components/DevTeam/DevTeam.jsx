@@ -11,7 +11,7 @@ let people = [
     {
         name: "Bipin Jadav",
         img: "/dev-team/bipin.jpeg",
-        about: "Website Head, Frontend UI",
+        about: "Website Head",
         position: "(Vice President)",
         lin: "https://www.linkedin.com/in/thisisbipin/",
         email: "bipinmjadav087@outlook.com",
