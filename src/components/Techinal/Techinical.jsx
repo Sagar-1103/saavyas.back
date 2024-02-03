@@ -14,6 +14,7 @@ import slide_image_6 from '/dist/images/img6.png';
 import slide_image_7 from '/dist/images/img7.png';
 import "./techinical.css"
 import "./index.css"
+
 function Techinical() {
   const [swiper, setSwiper] = useState(null);
 
