@@ -40,9 +40,9 @@
         ]
     },
     "devDependencies": {
-        "@esbuild/win32-x64": "^0.17.15",
         "@vitejs/plugin-react": "^3.1.0",
         "autoprefixer": "^10.4.14",
+        "esbuild": "^0.20.0",
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.7",
         "vite": "^4.5.1"
