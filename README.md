@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Git Workflow
+
+1. Switch to 'dev' branch (`$ git checkout dev`)
+2. Pull changes (`$ git pull`)
+3. Make your invidual branch and switch to that branch (`$ git branch <branch_name>`, `$ git checkout <branch_name>`)
+4. Make changes in your branch (commit changes)
+5. Pull changes before pushing (`$ git pull origin dev`)
+6. push your branch to remote repository (`$ git push --set-upstream origin <branch_name>`)
+7. Create a pull request on GitHub to merge into dev branch
