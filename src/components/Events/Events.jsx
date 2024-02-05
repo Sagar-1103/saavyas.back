@@ -17,8 +17,8 @@ useEffect( ()=> {
 
     return ( 
     
-    
-        <section className="mt-[max(90vh,600px)] w-full bg-[#0F1B33] z-[10]">
+    // BACKGROUND
+        <section className="mt-[max(90vh,600px)] w-full bg-[#111e22] z-[10]">
             <div className=" w-full flex justify-center items-center flex-col gap-8 z-[10]">
                 <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                     Technical Events
