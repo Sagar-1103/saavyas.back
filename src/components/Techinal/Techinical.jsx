@@ -1,3 +1,4 @@
+// export default Techinical;
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -5,18 +6,17 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
-import slide_image_1 from '/dist/images/img1.png';
-import slide_image_2 from '/dist/images/img2.jpg';
-import slide_image_3 from '/dist/images/img3.jpg';
-import slide_image_4 from '/dist/images/img4.jpg';
-import slide_image_5 from '/dist/images/img5.jpeg';
-import slide_image_6 from '/dist/images/img6.png';
-import slide_image_7 from '/dist/images/img7.png';
 import "./techinical.css"
 import "./index.css"
+import { useNavigate } from "react-router-dom";
+import { BsFillCalendar2WeekFill } from "react-icons/bs";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
-function Techinical() {
+import { AiFillTrophy } from "react-icons/ai";
+
+function Techinical({ event, eventType }) {
   const [swiper, setSwiper] = useState(null);
+  const navigate = useNavigate();
 
   const handleSlideChange = (swiper) => {
     setSwiper(swiper);
@@ -38,7 +38,7 @@ function Techinical() {
   };
 
   return (
-    <div className="container">
+    <div className="container w-full">
       {/* <h1 className="heading">HEADING</h1> */}
       <Swiper
         effect="coverflow"
@@ -63,48 +63,57 @@ function Techinical() {
         onSlideChange={handleSlideChange}
         onSlideChangeTransitionEnd={handleTransitionEnd}
       >
-<SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 1</h2>
-            <img src={slide_image_1} alt="Slide 1" />
+        {event && event.map((event) => (
+        <SwiperSlide key={event.eid}>
+        <div
+          onClick={() => navigate(`/events/technical/${event.eid}`)}
+          className="relative overflow-hidden bg-gray-800 rounded-lg shadow-lg cursor-pointer"
+        >
+          <span className="absolute top-2 left-2 rounded-lg p-2 text-lg bg-black text-yellow-50">
+            {eventType === "technical" ? "Technical" : "Cultural"}
+          </span>
+          <div className="h-4/6">
+            <img
+              src={event.event_images}
+              alt={event.title}
+              className="object-cover w-full h-full"
+            />
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 2</h2>
-            <img src={slide_image_2} alt="Slide 2" />
+          <div className="p-4 h-2/6 flex flex-col absolute bottom-0 bg-slate-700 w-full">
+            <h2 className="text-4xl font-semibold text-white">
+            {event.title.length < 20 ? (
+                        event.title
+                    ) : (
+                        <>
+                            {event.title.slice(0, 15)}
+                            <span className="font-poppins">{" ..."}</span>
+                        </>
+              )}
+            </h2>
+            <div className="flex flex-col p-2  text-gray-400 text-sm">
+              <span className="pr-2 flex text-2xl gap-2" >
+                <span className='flex gap-2'> 
+                <BsFillCalendar2WeekFill />{" "}
+                {new Date(event.start_time).toLocaleDateString("en-IN", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+                </span>
+              </span>
+              <span className="pr-2 flex text-2xl gap-2">
+                    <HiOutlineLocationMarker /> {" "}
+                    {event.vid}
+              </span>
+              <span className="pr-2 flex text-2xl gap-2"><AiFillTrophy />{" "} ₹{event.prize_money}</span>
+              <span className="pr-2 flex text-2xl gap-2">Participants: {" "} {event.total_participation}</span>
+            </div>
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 3</h2>
-            <img src={slide_image_3} alt="Slide 3" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 4</h2>
-            <img src={slide_image_4} alt="Slide 4" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 5</h2>
-            <img src={slide_image_5} alt="Slide 5" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 6</h2>
-            <img src={slide_image_6} alt="Slide 6" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="slide-content">
-            <h2>Title 7</h2>
-            <img src={slide_image_7} alt="Slide 7" />
-          </div>
-        </SwiperSlide>
+        </div>
+      </SwiperSlide>
+      
+      
+        ))}
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">
             <ion-icon name="arrow-back-outline"></ion-icon>
