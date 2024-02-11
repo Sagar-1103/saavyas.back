@@ -14,7 +14,7 @@ function Contact({ settext }) {
 
     const [selectedTeamName, setSelectedTeamName] = useState("Core Team");
     return (
-        <div className="mt-[max(90vh,600px)] p-3 w-full flex justify-center items-center flex-col gap-8 font-lostfish max-w-[1800px]">
+        <div className="mt-[max(90vh,600px)] text-white p-3 w-full flex justify-center items-center flex-col gap-8 font-lostfish max-w-[1800px]">
             <div className="font-semibold justify-center items-center md:text-4xl text-2xl font-lostfish">
                 Core Teams
             </div>

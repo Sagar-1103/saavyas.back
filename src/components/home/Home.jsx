@@ -7,25 +7,32 @@ const Home = ({ settext }) => {
     }, []);
     return (
         <>
-            <div className="mt-[max(90vh,600px)] z-10 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
-                <div className="font-semibold justify-center items-center text-4xl font-lostfish ">
+            <div className="mt-[max(100vh,600px)] z-10 flex justify-center items-center flex-col gap-8 w-[100%] text-white">
+                {/* <div className="font-semibold justify-center items-center text-4xl font-lostfish ">
                     About Us
-                </div>
-                <div className="w-full md:w-[75%] flex lg:flex-row  flex-col justify-center items-center text-center md:text-left text-md xl:w-[1280px] mx-auto">
-                    <div className="h-full flex justify-center items-center  lg:mx-[4rem] my-[3rem] lg:ml-[8rem] max-w-[200px]">
+                </div> */}
+                <div className="pt-12 w-full md:w-[75%] flex lg:flex-col flex-col justify-center items-center text-center md:text-left text-md xl:w-[1280px] mx-auto">
+                    <div className="font-semibold justify-center items-center text-4xl font-lostfish ">
+                        About Us
+                    </div>
+                    <div className="w-full md:w-[75%] flex  lg:flex-row flex-col justify-center items-center text-center md:text-left text-md xl:w-[1280px] mx-auto">
+                    <div className="h-full flex justify-center items-center lg:mr-[4rem]  my-[3rem]  max-w-[200px]">
+                        {/* lg:ml-[8rem] lg:mx-[4rem]*/}
                         <img
                             src="https://upload.wikimedia.org/wikipedia/en/e/e6/NIT_Goa_logo.png"
                             alt=""
                             className="rounded-full"
                         />
                     </div>
-                    <div className="w-3/4 md:text-justify text-left">
+                    <div className="w-3/4 md:text-justify text-left mb-3">
                         SAAVYAS is NIT Goa's very own Techno - Cultural Fest, it comprises of a
                         beautiful balance of various events catering to the very diverse audience of
                         Goa. Students from all over Goa and beyond come together to participate in
                         the event. This year we wish to host the event on a much higher scale and
                         make the fest a grand spectacle and a memorable event.
                     </div>
+                    </div>
+
                 </div>
             </div>
             <div className="flex justify-center align-center flex-wrap">
