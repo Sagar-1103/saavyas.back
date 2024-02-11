@@ -67,7 +67,7 @@ const navlinks = [
 const Footer = () => {
     const width = useWindowWidth();
     return (
-        <div className="bg-[#0F1B33] text-white flex flex-col gap-5 p-5 lg:p-10 z-[1]">
+        <div className="bg-[#111e22] text-white flex flex-col gap-5 p-5 lg:p-10 z-[1]">
             <div className="w-full xl:w-cap mx-auto">
                 <div className="flex flex-col md:flex-row md:items-start gap-5 md:gap-10  justify-between items-center">
                     {width >= 768 && (

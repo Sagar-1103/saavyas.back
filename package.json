@@ -15,8 +15,8 @@
         "react-hook-form": "^7.43.7",
         "react-icons": "^4.8.0",
         "react-router-dom": "^6.8.1",
-        "zod": "^3.21.4",
-        "swiper": "^11.0.5"
+        "swiper": "^11.0.5",
+        "zod": "^3.21.4"
     },
     "scripts": {
         "start": "vite --port 3000 --host",
@@ -47,6 +47,5 @@
         "postcss": "^8.4.21",
         "tailwindcss": "^3.2.7",
         "vite": "^4.2.0"
-
     }
 }
