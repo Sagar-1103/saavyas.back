@@ -57,17 +57,19 @@ const Navbar = () => {
 
                 <Link to="/contact">Contact </Link>
 
+                <Link to="/events">Events</Link>
                 <img
                     style={{
                         height: "50px",
                     }}
                     src="/saavyas-logo.png"
                 />
-                <Link to="/events">Events</Link>
 
                 <Link to="/workshops">Workshop</Link>
 
-                {/* {!user ? (
+                <Link to="/myevents">Myevents</Link>
+
+                {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
                         Register
                     </button>
@@ -76,7 +78,7 @@ const Navbar = () => {
                         {" "}
                         Sign Out{" "}
                     </button>
-                )} */}
+                )}
             </div>
 
             <div
@@ -129,7 +131,7 @@ const Navbar = () => {
 
                     <Link to="/contact">Contact</Link>
 
-                    {/* {!user ? (
+                    {!user ? (
                         <button onClick={handleSignIn} className="text-left">
                             Sign Up
                         </button>
@@ -137,7 +139,7 @@ const Navbar = () => {
                         <button onClick={logOut} className="text-left">
                             Sign Out
                         </button>
-                    )} */}
+                    )}
                 </div>
             </div>
         </div>

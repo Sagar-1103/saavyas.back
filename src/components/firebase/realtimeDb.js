@@ -52,12 +52,19 @@ export const getAllEvents = async () => {
     return data;
 };
 
+export const getTeams = async (leaderId) => {
+    const dbRef = ref(db);
+    const data = await (await get(child(dbRef, "/teams"))).val();
+    return data;
+};
+
 // create a team
-export const createTeam = async (teamName, teamMembers, uuid, teamId) => {
+export const createTeam = async (teamName,collegeName, teamMembers, uuid, teamId) => {
     const dbRef = ref(db);
     // const teamId = slugify(teamName) + "-" + uuid.slice(0, 5);
     const resTeam = await set(child(dbRef, `teams/${teamId}`), {
         teamName,
+        collegeName,
         teamMembers,
         teamLeaderUUID: uuid,
         createdAt: new Date().toISOString(),
@@ -86,16 +93,16 @@ export const createParticipants = async (uuid, eventId, category) => {
 
 /**
  *
- * @param {teamName, teamMembers, uuid, category, eventId}
+ * @param {teamName,collegeName, teamMembers, uuid, category, eventId}
  * @returns
  */
 export const handleRegistration = async (data) => {
-    const { teamName, teamMembers, uuid, category, eventId } = data;
-    const teamId = slugify(teamName) + "-" + uuid.slice(0, 5);
+    const { teamName,collegeName, teamMembers, uuid, category, eventId } = data;
+    const teamId = slugify(teamName) + "-" + uuid;
 
     // promise all
     return Promise.all([
-        createTeam(teamName, teamMembers, uuid, teamId),
+        createTeam(teamName,collegeName, teamMembers, uuid, teamId),
         createParticipants(uuid, eventId, category),
     ]);
 };

@@ -107,7 +107,7 @@ const EventDetail = ({ settext }) => {
 
                         <Link
                             // to={`/events/${category}/${eventId}`}
-                            // to={`/events/register?eventId=${eventId}&category=${category}`}
+                            to={`/events/register?eventId=${eventId}&category=${category}`}
                             ref={registerBtnRef}
                             // linear gradient bg 241.26deg, rgba(169, 204, 236, 0.2) 29.13%, rgba(90, 125, 154, 0.13) 61.59%),
                             className=" cursor-default w-[80%] my-6  md:w-[17rem]  mx-auto py-1 flex font-lostfish text-xl justify-center items-center bg-[#A9CCEC] bg-opacity-[0.2] backdrop-blur-sm shadow-md rounded-md mt-5 md:m-10"
