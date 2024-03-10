@@ -15,7 +15,7 @@ import EventDetail from "./components/Events/EventDetail";
 import Wrapper from "./components/utils/Wrapper";
 import { useState } from "react";
 import CodingClub from "./components/CodingClub/CodingClub";
-import Myevents from "./components/MyEvents/myevents";
+import Myevents from "./components/MyEvents/Myevents";
 
 function App() {
     let [text, settext] = useState("Sea Shore Soiree");
