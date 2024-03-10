@@ -9,6 +9,7 @@ const Events = ({ settext }) => {
     async function LoadData() {
         let x = await GetDetailsOfEndPoint("events/");
         setEvents(x);
+        console.log(x);
     }
 
 useEffect( ()=> {

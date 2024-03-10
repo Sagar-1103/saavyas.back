@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
-import EventCard from "../utils/cards/EventCard";
 import { GetDetailsOfEndPoint } from "../firebase/realtimeDb";
-import Techinical from "../Techinal/Techinical.jsx";
 import { UserAuth } from "../context/AuthContext.jsx";
 
 const Myevents = ({ settext }) => {
-    let [events, setEvents] = useState(null);
+    let [myEvents, setMyEvents] = useState(null);
     const {user} = UserAuth();
 
     async function LoadData() {
         try {
-            let x = await GetDetailsOfEndPoint("events/");
-            let y = Object.keys(x).filter(key => {
+            let x = await GetDetailsOfEndPoint("teams/");
+            let y = [];
+            Object.entries(x).forEach(([key, value]) => {
                 const parts = key.split('-');
-                return parts[1] === user.uid;
-            });
-            console.log(x);
-            setEvents(x);
+                if (user.uid===parts[1]) {
+                    const temp = [key,value];
+                    y.push(temp);
+                }
+              });
+            // console.log(y);
+            setMyEvents(y);
         } catch (error) {
             console.error('Error loading data:', error);
             // Handle error, e.g., show a message to the user
@@ -37,11 +39,29 @@ useEffect( ()=> {
                     My Events
                 </div>
                 <div>
-                    {events && Object.keys(events.technical).length > 0 ? (
+                    {
+                        myEvents && myEvents.map((event)=>{
+                            const teamDetails = event[1];
+                            // console.log(teamDetails.teamMembers);
+                            return (
+                                <div style={{marginBottom:20,marginTop:20,color:"white",borderWidth:1,borderColor:"white"}}>
+                                <h1 style={{textAlign:"center",fontSize:25}}>{teamDetails.teamName}</h1>
+                                <div style={{borderWidth:1,borderColor:"white",padding:5}}>
+                                <p>Team Members : [{teamDetails.teamMembers.map(member=>(` ${member} `))}]</p>
+                                <p>College Name : {teamDetails.collegeName}</p>
+                                <p>Created on : {teamDetails.createdAt.slice(0,10)}</p>
+                                <p>Payment Status : {teamDetails.hasPaid ? "Paid":"Not Paid"}</p>
+                                </div>
+                            </div>
+                            )
+                            
+})
+                    }
+                    {/* {events && Object.keys(events.technical).length > 0 ? (
                         <Techinical event={Object.values(events.technical)} eventType="technical" />
                     ) : (
                         <p>No technical events available</p>
-                    )}
+                    )} */}
                 </div>
                 </div>
         </section>
