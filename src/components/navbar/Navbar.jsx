@@ -11,7 +11,6 @@ const Navbar = () => {
         window.scrollTo(0, 0);
     }, [pathname]);
     const { googleSignIn, logOut, user } = UserAuth();
-    const [justSignedIn, setJustSignedIn] = React.useState(false);
     const navigate = useNavigate();
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +18,6 @@ const Navbar = () => {
     const handleSignIn = async () => {
         try {
             await googleSignIn();
-            setJustSignedIn(true);
         } catch (err) {
             console.log(err);
         }
