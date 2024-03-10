@@ -15,6 +15,7 @@ import EventDetail from "./components/Events/EventDetail";
 import Wrapper from "./components/utils/Wrapper";
 import { useState } from "react";
 import CodingClub from "./components/CodingClub/CodingClub";
+import Myevents from "./components/MyEvents/myevents";
 
 function App() {
     let [text, settext] = useState("Sea Shore Soiree");
@@ -28,12 +29,13 @@ function App() {
                         <Wrapper text={text} />
                         <Routes>
                             <Route path="/" element={<Home settext={settext} />} />
-                            {/* <Route path="register" element={<Register />} /> */}
+                            <Route path="register" element={<Register />} />
                             <Route path="workshops" element={<Workshops settext={settext} />} />
                             <Route path="contact" element={<Contact settext={settext} />} />
                             <Route path="*" element={<Error404 settext={settext} />} />
                             <Route path="events" element={<Events settext={settext} />} />
-                            {/* <Route path="events/register" element={<EventRegister />} /> */}
+                            <Route path="myevents" element={<Myevents settext={settext} />} />
+                            <Route path="events/register" element={<EventRegister />} />
                             <Route
                                 path="events/:category/:eventId"
                                 element={<EventDetail settext={settext} />}

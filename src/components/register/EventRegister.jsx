@@ -37,6 +37,7 @@ const EventRegister = () => {
 
     // form
     const [teamName, setTeamName] = React.useState("");
+    const [collegeName, setCollegeName] = React.useState("");
     const [teamMembers, setTeamMembers] = React.useState([]);
     const [teamMemberName, setTeamMemberName] = React.useState("");
 
@@ -75,6 +76,9 @@ const EventRegister = () => {
     const handleTeamNameChange = (e) => {
         setTeamName(e.target.value);
     };
+    const handleCollegeNameChange = (e) => {
+        setCollegeName(e.target.value);
+    };
 
     const handleTeamMemberNameChange = (e) => {
         setTeamMemberName(e.target.value);
@@ -92,12 +96,14 @@ const EventRegister = () => {
         // validation
         if (teamName === "") return;
         if (teamMembers.length === 0) return;
-        console.log({
-            user,
-        });
+        if (collegeName === "") return;
+        // console.log({
+        //     user,
+        // });
 
         console.log({
             teamName,
+            collegeName,
             teamMembers,
             uuid: user.user.uid,
             eventId: searchParams.get("eventId"),
@@ -106,6 +112,7 @@ const EventRegister = () => {
 
         const res = await handleRegistration({
             teamName,
+            collegeName,
             teamMembers,
             uuid: user.user.uid,
             eventId: searchParams.get("eventId"),
@@ -332,8 +339,25 @@ const EventRegister = () => {
                         ) : (
                             <></>
                         )}
+
+
+                        <div className="flex flex-col gap-1">
+                            <label className="text-white text-lg font-bold" htmlFor="teamName">
+                                College Name
+                            </label>
+                            <input
+                                type="text"
+                                name="collegeName"
+                                id="collegeName"
+                                placeholder="College Name"
+                                value={collegeName}
+                                onChange={handleCollegeNameChange}
+                                className="bg-[#D9D9D9] bg-opacity-[0.3]  text-white rounded-md p-2"
+                            />
+                        </div>
                     </form>
                 </div>
+
                 <div className="flex flex-col w-full ">
                     <button
                         type="button"
