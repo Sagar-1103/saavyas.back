@@ -25,21 +25,21 @@ const Navbar = () => {
         }
     };
 
-    useEffect(() => {
-        (async () => {
-            if (justSignedIn && user) {
-                // Check if user is already registered
-                let registered = true;
-                if (!(await isUserAlreadyInDb(user.uid))) {
-                    registered = false;
-                }
-                if (!registered) {
-                    console.log("reached here", registered);
-                    return navigate("/register");
-                }
-            }
-        })();
-    }, [justSignedIn, user]);
+    // useEffect(() => {
+    //     (async () => {
+    //         if (justSignedIn && user) {
+    //             // Check if user is already registered
+    //             let registered = true;
+    //             if (!(await isUserAlreadyInDb(user.uid))) {
+    //                 registered = false;
+    //             }
+    //             if (!registered) {
+    //                 console.log("reached here", registered);
+    //                 return navigate("/register");
+    //             }
+    //         }
+    //     })();
+    // }, [justSignedIn, user]);
 
     return (
         <div className="w-screen h-auto flex justify-center items-center relative z-[1000]">
@@ -67,7 +67,7 @@ const Navbar = () => {
 
                 <Link to="/workshops">Workshop</Link>
 
-                <Link to="/myevents">Myevents</Link>
+                {user && <Link to="/myevents">Myevents</Link>}
 
                 {!user ? (
                     <button onClick={handleSignIn} className="mr-10">
@@ -128,6 +128,8 @@ const Navbar = () => {
                     <Link to="/events">Events</Link>
 
                     <Link to="/workshops">Workshops</Link>
+
+                    
 
                     <Link to="/contact">Contact</Link>
 

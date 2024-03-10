@@ -33,14 +33,14 @@ const Register = () => {
         };
 
         const res = await createNewUser(newUser);
-        navigate("/");
+        return navigate("/");
     };
 
     useEffect(() => {
         if (user) {
             isUserAlreadyInDb(user.uid).then((res) => {
                 if (res) {
-                    navigate("/");
+                    return navigate("/");
                 }
             });
             setName(user.displayName);

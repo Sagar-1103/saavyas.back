@@ -7,20 +7,23 @@ import {
     onAuthStateChanged,
 } from "firebase/auth";
 import { auth } from "../firebase/firebaseInit";
+import {useNavigate} from "react-router-dom";
 
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
     const [user, setUser] = useState({});
+    const navigate = useNavigate();
 
     const googleSignIn = async () => {
         const provider = new GoogleAuthProvider();
         await signInWithPopup(auth, provider);
-        return;
+        return navigate("/");
     };
 
     const logOut = () => {
         signOut(auth);
+        return navigate("/");
     };
 
     useEffect(() => {
